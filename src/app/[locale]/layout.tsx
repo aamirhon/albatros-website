@@ -58,11 +58,6 @@ export async function generateMetadata({
     uz: "SNIBE, BD, Randox, Dymind, Werfen, Illumina va boshqa laboratoriya va tibbiy diagnostika yetakchilarining Oʻzbekistondagi rasmiy distribyutori. Kalit topshirish asosida yetkazib berish, 24/7 servis.",
     en: "Official distributor of SNIBE, BD, Randox, Dymind, Werfen, Illumina and other global laboratory and medical diagnostics leaders in Uzbekistan. Turnkey supply, 24/7 service.",
   };
-  const KEYWORDS = {
-    ru: ["лабораторное оборудование", "IVD", "Узбекистан", "SNIBE", "Maglumi", "диагностика", "Albatros"],
-    uz: ["laboratoriya uskunalari", "IVD", "Oʻzbekiston", "SNIBE", "Maglumi", "diagnostika", "Albatros"],
-    en: ["laboratory equipment", "IVD", "Uzbekistan", "SNIBE", "Maglumi", "diagnostics", "Albatros"],
-  };
   const OG_LOCALE = { ru: "ru_RU", uz: "uz_UZ", en: "en_US" };
   const l = (routing.locales as readonly string[]).includes(locale) ? (locale as AppLocale) : routing.defaultLocale;
   return {
@@ -71,7 +66,6 @@ export async function generateMetadata({
     // (brandTitle) so the company name leads. `default` is the root fallback.
     title: TITLE[l],
     description: DESCRIPTION[l],
-    keywords: KEYWORDS[l],
     openGraph: {
       type: "website",
       siteName: "Albatros Health Care",
