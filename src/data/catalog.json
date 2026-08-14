@@ -311,7 +311,7 @@
     "name": "Biossays C10",
     "category": "Биохимия",
     "brand": "SNIBE",
-    "shortDescription": "Мощная интеллектуальная биохимическая система до 2000 тестов/час.",
+    "shortDescription": "Автоматический биохимический анализатор до 2000 тестов/час с электролитным модулем.",
     "fullDescription": "Biossays C10, мощная и интеллектуальная биохимическая система от SNIBE. Производительность по биохимии до 2000 тестов/час плюс электролитный модуль 1000 тестов/час. Возможность добавления decapper-модуля для автоматического снятия крышек.",
     "specifications": [
       {
@@ -336,8 +336,8 @@
     ],
     "featured": false,
     "isNew": true,
-    "shortDescriptionUz": "Soatiga 2000 tagacha testli kuchli intellektual biokimyoviy tizim.",
-    "shortDescriptionEn": "Powerful intelligent biochemistry system, up to 2000 tests/hour.",
+    "shortDescriptionUz": "Soatiga 2000 testgacha avtomatik biokimyoviy analizator, elektrolit moduli bilan.",
+    "shortDescriptionEn": "Automatic biochemistry analyzer up to 2,000 tests/hour with an electrolyte module.",
     "fullDescriptionUz": "Biossays C10, SNIBE kompaniyasining kuchli va intellektual biokimyoviy tizimi. Biokimyo boʻyicha soatiga 2000 testgacha unumdorlik, qoʻshimcha elektrolit moduli soatiga 1000 test. Qopqoqlarni avtomatik olib tashlash uchun decapper-modulini qoʻshish imkoniyati.",
     "fullDescriptionEn": "Biossays C10 is SNIBE's powerful, intelligent biochemistry system. Biochemistry throughput of up to 2000 tests/hour plus an electrolyte module at 1000 tests/hour. A decapper module can be added for automatic cap removal.",
     "detailedDescription": "Производительность\nBiossays C10 обеспечивает высокую скорость выполнения исследований:\nдо 2000 тестов/час биохимический модуль\nдо 1000 тестов/час электролитный модуль\nТакая производительность позволяет эффективно справляться с большими потоками образцов и значительно сокращать время получения результатов.\nАвтоматизация и вместимость\nСистема оснащена увеличенной рабочей зоной, что делает её удобной для лабораторий с высокой нагрузкой:\nдо 300 позиций для образцов\n100 + 100 позиций для реагентов\nЭто обеспечивает непрерывную работу без частой перезагрузки и позволяет одновременно выполнять большое количество исследований.\nГибкость системы\nBiossays C10 поддерживает расширение функциональности за счёт подключения дополнительных модулей, включая decapper-модуль для автоматического открытия пробирок. Это снижает ручной труд и повышает биобезопасность лаборатории.\nИтог\nBiossays C10 это мощное и гибкое решение для биохимических лабораторий, которое сочетает высокую скорость, автоматизацию и удобство работы. Система позволяет оптимизировать лабораторные процессы, повысить производительность и обеспечить стабильное качество результатов."
@@ -439,7 +439,7 @@
     "name": "Biolumi CX Solution",
     "category": "Биохимия",
     "brand": "SNIBE",
-    "shortDescription": "Интегрированная платформа ИХЛА + Биохимия с трек-системой.",
+    "shortDescription": "Биохимия + ИХЛА в единой трек-системе: интегрированная платформа SNIBE с биохимией до 2000 тестов/час и электролитным модулем 1000 тестов/час.",
     "fullDescription": "Biolumi CX Solution, интегрированная платформа, объединяющая ИХЛА и биохимию в единую трек-систему. Доступные конфигурации: X10+C10 (ИХЛА 1000 т/ч + биохимия 2000 т/ч), X8+C10, X8+C8, X6+C8. Все конфигурации включают электролитный модуль 1000 т/ч.",
     "specifications": [
       {
@@ -464,8 +464,8 @@
     ],
     "featured": true,
     "isNew": false,
-    "shortDescriptionUz": "Trek-tizimli integratsiyalashgan IXLA + Biokimyo platformasi.",
-    "shortDescriptionEn": "Integrated CLIA + biochemistry platform with a track system.",
+    "shortDescriptionUz": "Yagona trek-tizimda biokimyo + IXLA: SNIBE integratsiyalashgan platformasi, biokimyo soatiga 2000 testgacha, elektrolit moduli soatiga 1000 test.",
+    "shortDescriptionEn": "Biochemistry + CLIA in a single track system: SNIBE's integrated platform with biochemistry up to 2,000 tests/hour and a 1,000 tests/hour electrolyte module.",
     "fullDescriptionUz": "Biolumi CX Solution, IXLA va biokimyoni yagona trek-tizimga birlashtiruvchi integratsiyalashgan platforma. Mavjud konfiguratsiyalar: X10+C10 (IXLA 1000 t/s + biokimyo 2000 t/s), X8+C10, X8+C8, X6+C8. Barcha konfiguratsiyalar 1000 t/s elektrolit modulini oʻz ichiga oladi.",
     "fullDescriptionEn": "Biolumi CX Solution is an integrated platform combining CLIA and biochemistry into a single track system. Available configurations: X10+C10 (CLIA 1000/hour + biochemistry 2000/hour), X8+C10, X8+C8, X6+C8. All configurations include a 1000/hour electrolyte module.",
     "detailedDescription": "Производительность\nСистема предлагает гибкие конфигурации в зависимости от задач лаборатории:\nX10 + C10\nИммунохимия: до 1000 тестов/час\nБиохимия: до 2000 тестов/час\nЭлектролиты: до 1000 тестов/час\nX8 + C10\nИммунохимия: до 600 тестов/час\nБиохимия: до 2000 тестов/час\nЭлектролиты: до 1000 тестов/час\nX8 + C8\nИммунохимия: до 600 тестов/час\nБиохимия: до 1600 тестов/час\nЭлектролиты: до 300 тестов/час\nX6 + C8\nИммунохимия: до 450 тестов/час\nБиохимия: до 1600 тестов/час\nЭлектролиты: до 300 тестов/час\nТакая вариативность позволяет подобрать оптимальную конфигурацию под текущую нагрузку и масштабировать систему по мере роста лаборатории.\nИнтеграция и автоматизация\nBiolumi CX Solution объединяет несколько модулей в единую линию:\nмодуль биохимии\nмодуль иммунохимии (ИХЛА)\nмодуль загрузки пробирок\nмодуль автоматического открытия и закрытия колпачков\nЭто обеспечивает:\nминимизацию ручного труда\nсокращение времени обработки образцов\nснижение риска ошибок\nповышение биобезопасности\nПреимущества решения\nЕдиная система вместо разрозненных анализаторов\nНепрерывный поток образцов без ручного переноса\nСокращение времени от анализа до результата\nГибкость конфигураций под разные задачи\nПовышение общей эффективности лаборатории\nИтог\nBiolumi CX Solution это комплексный подход к организации лабораторной диагностики, позволяющий объединить ключевые направления анализа в одной системе. Решение обеспечивает высокую производительность, автоматизацию процессов и стабильное качество результатов, создавая основу для эффективной работы современной лаборатории."
@@ -724,7 +724,7 @@
     "name": "Dymind DF56 Vet",
     "category": "Гематология",
     "brand": "Dymind",
-    "shortDescription": "Ветеринарный 6-Diff анализатор для 6 видов животных.",
+    "shortDescription": "Гемоанализатор для ветеринарной медицины: 6-Diff, 6 видов животных.",
     "fullDescription": "Dymind DF56 Vet, ветеринарный гематологический анализатор 6-Diff + RET + NRBC с AI-анализом. Поддерживает 6 видов животных: кошки, собаки, кролики, коровы, лошади, овцы. Производительность до 100 тестов/час, объём образца 20 мкл.",
     "specifications": [
       {
@@ -749,8 +749,8 @@
     ],
     "featured": false,
     "isNew": true,
-    "shortDescriptionUz": "6 tur hayvon uchun veterinariya 6-Diff analizatori.",
-    "shortDescriptionEn": "Veterinary 6-Diff analyzer for 6 animal species.",
+    "shortDescriptionUz": "Veterinariya tibbiyoti uchun gemoanalizator: 6-Diff, 6 tur hayvon.",
+    "shortDescriptionEn": "Hematology analyzer for veterinary medicine: 6-Diff, 6 animal species.",
     "fullDescriptionUz": "Dymind DF56 Vet, AI-tahlilli 6-Diff + RET + NRBC veterinariya gematologik analizatori. 6 turdagi hayvonni qoʻllab-quvvatlaydi: mushuk, it, quyon, sigir, ot, qoʻy. Soatiga 100 testgacha unumdorlik, namuna hajmi 20 mkl.",
     "fullDescriptionEn": "Dymind DF56 Vet is a veterinary 6-Diff + RET + NRBC hematology analyzer with AI analysis. It supports 6 animal species: cats, dogs, rabbits, cows, horses, sheep. Throughput up to 100 tests/hour, sample volume 20 µL.",
     "detailedDescription": "Функциональные возможности\nDF56 Vet поддерживает:\n5-Diff дифференциацию лейкоцитов\nанализ 23 основных параметров крови\nработу с венозной и предварительно разбавленной цельной кровью\nСистема предназначена для диагностики у 6 видов животных :\nкошки\nсобаки\nкролики\nкоровы\nлошади\nовцы\nПроизводительность\nАнализатор обеспечивает стабильную работу в условиях ветеринарной клиники:\nдо 60 тестов в час\nобъём образца всего 20 мкл\nЭто позволяет быстро получать результаты даже при ограниченном объёме биоматериала.\nУдобство и эксплуатация\nDYMIND DF56 Vet разработан с учётом повседневной работы врача:\nкомпактный размер\nсенсорный экран с интуитивным интерфейсом\nподдержка русского языка\nвстроенный термопринтер\nПростота использования позволяет минимизировать время обучения персонала и ускорить рабочие процессы.\nДиагностические возможности\nАнализатор предоставляет ключевые показатели для оценки состояния животного:\nпоказатели лейкоцитов, эритроцитов и тромбоцитов\nгематологические индексы (MCV, MCH, MCHC и др.)\nрасширенные параметры для базовой диагностики\nЭто делает систему эффективным инструментом для первичной диагностики и мониторинга состояния пациентов.\nИтог\nDYMIND DF56 Vet это надёжное и доступное решение для ветеринарных клиник, позволяющее быстро получать точные результаты, упрощать работу персонала и повышать качество диагностики животных."
@@ -1000,7 +1000,7 @@
     "name": "URIT BF-730",
     "category": "Клинический анализ",
     "brand": "URIT",
-    "shortDescription": "Проточный цитометр для клинической и научной практики.",
+    "shortDescription": "Проточная цитометрия для клинической и научной практики.",
     "fullDescription": "URIT BF-730, проточный цитометр для клинической и научной практики. Применения: онкология, репродуктология, иммунология. Оценка иммунного статуса (Т-лимфоциты, лейкоциты), апоптоз, клеточный цикл, выявление иммунных и генетических маркеров (HLA-B27), анализ фенотипа клеток.",
     "specifications": [
       {
@@ -1021,8 +1021,8 @@
     ],
     "featured": false,
     "isNew": false,
-    "shortDescriptionUz": "Klinik va ilmiy amaliyot uchun oqim sitometri.",
-    "shortDescriptionEn": "Flow cytometer for clinical and research use.",
+    "shortDescriptionUz": "Klinik va ilmiy amaliyot uchun oqim sitometriyasi.",
+    "shortDescriptionEn": "Flow cytometry for clinical and research practice.",
     "fullDescriptionUz": "URIT BF-730, klinik va ilmiy amaliyot uchun oqim sitometri. Qoʻllanilishi: onkologiya, reproduktologiya, immunologiya. Immun holatni baholash (T-limfotsitlar, leykotsitlar), apoptoz, hujayra sikli, immun va genetik markerlarni aniqlash (HLA-B27), hujayra fenotipini tahlil qilish.",
     "fullDescriptionEn": "URIT BF-730 is a flow cytometer for clinical and research practice. Applications: oncology, reproductive medicine, immunology. Immune status assessment (T-lymphocytes, leukocytes), apoptosis, cell cycle, detection of immune and genetic markers (HLA-B27), cell phenotype analysis.",
     "detailedDescription": "Технологии и возможности\nURIT BF-730 оснащён передовыми технологиями проточной цитометрии:\n3 лазера (405, 488, 638 нм)\nподдержка до 14 флуоресцентных каналов\nвысокая чувствительность и точность измерений\nавтоматизированный подсчёт клеток\nСистема позволяет проводить сложные многопараметрические исследования с высокой степенью детализации.\nОбласти применения\nАнализатор широко применяется в различных направлениях:\nонкология\nиммунология\nрепродуктология\nURIT BF-730 используется для диагностики, мониторинга состояния пациентов и проведения научных исследований.\nКлинические и научные задачи\nСистема поддерживает выполнение широкого спектра исследований:\nиммунный статус и фенотипирование клеток\nвыявление специфических маркеров\nанализ клеточного цикла\nисследования в области воспалительных процессов\nоценка репродуктивного здоровья\nАвтоматизация и удобство\nURIT BF-730 разработан с учётом удобства лабораторной работы:\nавтоматическая настройка параметров анализа\nготовые шаблоны для типовых исследований\nинтуитивный интерфейс\nвизуализация данных в реальном времени\nЭто позволяет снизить влияние человеческого фактора и повысить эффективность работы.\nПреимущества\nгибкая конфигурация под задачи лаборатории\nвысокая точность и воспроизводимость результатов\nавтоматизация сложных аналитических процессов\nширокие возможности для клинических и научных исследований\nснижение затрат за счёт оптимизации расходных материалов\nИтог\nURIT BF-730 это мощный инструмент для проточной цитометрии, который сочетает технологичность, гибкость и точность. Система позволяет лабораториям расширить диагностические возможности, повысить качество исследований и эффективно работать с сложными биомедицинскими задачами."
@@ -1070,7 +1070,7 @@
     "name": "KEYU KU-F40",
     "category": "Клинический анализ",
     "brand": "KEYU",
-    "shortDescription": "Автоматический анализатор диагностики кала.",
+    "shortDescription": "Автоматический анализатор кала для комплексного исследования в клинических лабораториях.",
     "fullDescription": "KEYU KU-F40, автоматический анализатор для диагностики кала. Производительное решение для клинических лабораторий.",
     "specifications": [
       {
@@ -1083,8 +1083,8 @@
     ],
     "featured": false,
     "isNew": false,
-    "shortDescriptionUz": "Najas diagnostikasi avtomatik analizatori.",
-    "shortDescriptionEn": "Automatic stool diagnostics analyzer.",
+    "shortDescriptionUz": "Klinik laboratoriyalarda kompleks tekshirish uchun avtomatik najas analizatori.",
+    "shortDescriptionEn": "Automatic stool analyzer for comprehensive testing in clinical laboratories.",
     "fullDescriptionUz": "KEYU KU-F40, najas diagnostikasi uchun avtomatik analizator. Klinik laboratoriyalar uchun unumdor yechim.",
     "fullDescriptionEn": "KEYU KU-F40 is an automatic analyzer for stool diagnostics. A high-throughput solution for clinical laboratories.",
     "detailedDescription": "До 70 образцов/час\n4 канала\nЗагрузка до130 образцов\nУдобный интерфейс управления\nУсовершенствованный пробоотборник для высокой точности обнаружения\n6 видов ИХА:\nCкрытая кровь\nТрансферрин\nРотавирус/Аденовирус\nH.pylori\nКальпротектин\nЛактоферрин\n&bull; Копрограмма\n&bull; Обнаружение яиц гельминтов и простейших\n&bull; Иммунохроматографическое исследование\n&bull; Автоматизация микроскопического исследования, мультискрининг.\n&bull; Единственный в мире анализатор, позволяющий использовать методы флотации и седиментации.\n&bull; Отсутствие контакта с образцом, исключение риска заражения.\n&bull; Тестирование нескольких параметров одновременно или последовательно.\n&bull; Полная герметичность контейнеров.\n&bull; С функцией анализа искусственным интеллектом"
@@ -1095,7 +1095,7 @@
     "name": "SQA-IO + SQA-VU",
     "category": "Клинический анализ",
     "brand": "Condalab",
-    "shortDescription": "Автоматизированный анализ спермы за 75 секунд по стандартам ВОЗ.",
+    "shortDescription": "Анализатор качества спермы: автоматизированное комплексное исследование спермы за 75 секунд по стандартам ВОЗ 5-го и 6-го изданий.",
     "fullDescription": "SQA-IO + SQA-VU, система автоматизированного анализа спермы. Результат за 75 секунд в полном соответствии со стандартами ВОЗ 5-го и 6-го изданий.",
     "specifications": [
       {
@@ -1116,8 +1116,8 @@
     ],
     "featured": false,
     "isNew": false,
-    "shortDescriptionUz": "JSST standartlari boʻyicha 75 soniyada avtomatlashtirilgan sperma tahlili.",
-    "shortDescriptionEn": "Automated semen analysis in 75 seconds, to WHO standards.",
+    "shortDescriptionUz": "Sperma sifati analizatori: JSST 5- va 6-nashr standartlari boʻyicha 75 soniyada avtomatlashtirilgan kompleks sperma tekshiruvi.",
+    "shortDescriptionEn": "Sperm quality analyzer: automated comprehensive semen analysis in 75 seconds to WHO 5th and 6th edition standards.",
     "fullDescriptionUz": "SQA-IO + SQA-VU, avtomatlashtirilgan sperma tahlili tizimi. JSST 5- va 6-nashr standartlariga toʻliq muvofiq holda 75 soniyada natija.",
     "fullDescriptionEn": "SQA-IO + SQA-VU is an automated semen analysis system. Results in 75 seconds, fully compliant with WHO 5th and 6th edition standards.",
     "detailedDescription": "Щитовидная панель\nTSH (3rd Generation)\nT4\nT3\nFT4\nFT3\nTg (Thyroglobulin)\nTGA (Anti-Tg) Anti-TPO\nTRAb TMA Rev T3 T-Uptake\nВоспалит. процессы\nCRP\nPCT (Procalcitonin)\nIL-6 (Interleukin 6)\nSAA (Serum Amyloid A)\nTNF-&alpha;\n*VEGF\n*PCT STAT-X\n*CRP STAT-X\nМетаболизм\nPepsinogen I\nPepsinogen II\nGastrin-17 GH (hGH)\nIGF-I\nIGFBP-3\nАнемия\nVitamin B12\nFerritin\nFolate (FA)\nEPO\nRBC Folate\n*Anti-Intrinsic Factor\n*Active B12\nФертильность\nFSH\nLH\nHCG/&beta;-HCG\nPRL (Prolactin)\nEstradiol\nTestosterone\nfree Testosterone\nDHEA-S\nProgesterone\nfree Estriol\n17&alpha;-OH Progesterone\nAMH\nSHBG\nAndrostenedione\nPlGF\nsFlt-1\n*Inhibin A\n*Inhibin B\nПренат. скрининг\nAFP (Prenatal Screening)\nFree &beta;-HCG\nPAPP-A\nfree Estriol\n*Inhibin A\nКостный метаболизм\nCalcitonin\nOsteocalcin\n25-OH Vitamin D\nIntact PTH\n&beta;-CTx\ntotal P1NP\n*PTH (1-84)\n*BAP\nФункции почек\n&beta;2-MG\nAlbumin\n*NGAL\nОнкомаркеры\nAFP\nCEA\nTotal PSA\nf-PSA\nCA 125\nCA 15-3\nCA 19-9\nPAP\nCA 50\nCYFRA 21-1\nCA 242\nCA 72-4\nNSE\nS-100\nSCCA\nTPA-snibe\nProGRP\nHE4\nHER-2\nPIVKA-II\n*AFP-L3%\nГипертония\nDirect Renin\nAldosterone\nAngiotensin I\nAngiotensin Il\nCortisol\nАСТН\nГликометаболизм\nC-Peptide\nInsulin\nGAD 65\nAnti-IA2\nICA\nIAA (Anti Insulin)\nProinsulin\n﻿Glucagon\nTORCH\nToxo IgG\nToxo IgM\nRubella IgG Rubella IgM\nCMV IgG\nCMV IgM\nHSV-1/2 IgG\nHSV-1/2 IgM\nHSV-1 IgG\nHSV-1 IgM\nHSV-2 IgG\nHSV-2 IgM\n﻿Toxo IgG Avidity\n﻿CMV IgG Avidity\n﻿Parvovirus B19 IgG\n﻿Parvovirus B19 IgM\nКардиомаркеры\nCK-MB\nTroponin I Myoglobin\nhs-cTnl\nhs-CRP\nH-FABP\nNT-proBNP\nBNP\nD-Dimer Lp-PLA2\nMPO\nHCY (Homocysteine)\n﻿sST2\nhs-cTnl STAT-X\n﻿NT-proBNP STAT-X\n﻿Myoglobin STAT-X\n﻿D-Dimer STAT-X\nИмунноглобулины\nIgM\nIgA\nIgE\nIgG\nВирус Эпштейн-Барра\nEBV EA IgG\nEBV EA IgA\nEBVVCA IgG\nEBV VCA IgM\nEBV VCA IgA\nEBV NA IgG\nEBV NA IgA\nФиброз печени\nHyaluronic Acid (HA)\nPIIIP N-P\nCIV\nLaminin\nCholyglycine\nGP73\nЛекарств, мониторинг\nDigoxin\nCSA (Cyclosporine A)\nFK 506 (Tacrolimus)\n﻿Sirolimus\n﻿Everolimus\n﻿Mycophenolic Acid\nSTAT-X\n﻿hs-cTnl\n﻿NT-proBNP\n﻿Myoglobin\n﻿D-Dimer\n﻿PCT\n﻿CRP\nВетеринарные тесты\nCTSH\ncTT4\nVFT4\n*Cortisol\nИнфекционные заболевания\nГепатиты\nHBsAg\nAnti-HBs\nHBeAg\nAnti-HBe\nAnti-HBc\nAnti-HBc IgM\nAnti-HCV\nAnti-HAV\nHAV IgM\n*HBV Pre-S1 Ag\n*HEV IgG\n*HEV IgM\n*HDV IgG\n*HDV IgM\n*Anti-HDV\nРеспираторные инфекции\n2019-nCoV IgG\n2019-nCoV IgM\nSARS-CoV-2 S-RBD IgG\nSARS-CoV-2 Neutralizing Antibody\nSARS-CoV-2 Ag\nMycoplasma Pneumoniae IgG\nMycoplasma Pneumoniae IgM\nChlamydia Pneumoniae IgG\nChlamydia Pneumoniae IgM\nRespiratory Syncytial Virus IgM\nCoxsackievirus B IgM\n﻿Adenovirus IgM\n﻿Influenza A Virus IgM\n﻿Influenza B Virus IgM\nLegionella Pneumophila IgM\n﻿Human Parainfluenza Virus IgM\nПрочие заболевания\nHIV Ab/Ag Combi\nSyphilis\nChagas\nHTLV I+II\nH.pylori IgG\nH.pylori IgA\nH.pylori IgM\nDengue virus IgG\nDengue virus NS1\nMonkeypox Virus Ag\n*H.pylori Ag\n*Dengue virus IgM\n*TB-IGRAs\n*Zika Virus IgG\n*Zika Virus IgM\n*Zika Virus NS1\n*Chlamydia trachomatis IgA\n*Chlamydia trachomatis IgG\nАутоиммунная панель\nАутоиммунные заболевания печени\nAMA-M2 IgG\nЭндокринные заболевания\nAnti-TPO\nTGA (Anti-Tg)\nTRAb\nTMA\nGAD 65\nAnti-IA2\nICA\nIAA(Anti Insulin)\n*Anti-ZnT8\nРевматоидный артрит\nAnti-CCP\nRF IgM\nRF IgG\n﻿RF IgA\n﻿RF Screen\nАнтифосфолипидный синдром\nAnti-Cardiolipin IgG\nAnti-Cardiolipin IgM\nB2-Glycoprotein | 1gG\nB2-Glycoprotein | 1gM\n﻿Anti-Cardiolipin IgA\n﻿Anti-Cardiolipin Screen\n﻿B2-Glycoprotein | 1gA\n﻿B2-Glycoprotein | Screen\nВаскулиты\nAnti-MPO\n﻿Anti-PR3 IgG\n﻿Anti-GBM IgG\nЦелиакия\nAnti-tTG IgA\nAnti-tTG IgG\nDGP IgA\nDGP IgG\nЗаболевания соединительной ткани\nANA Screen\nENA Screen\nAnti-dsDNA IgG\nAnti-Sm IgG\nAnti-Rib-P IgG\nAnti-SS-B IgG\nAnti-SS-A IgG\nAnti-Jo-1 IgG\nAnti-Scl-70 IgG\nAnti-Centromeres IgG\nAnti-Histones IgG\nAnti-nRNP/Sm IgG\nAnti-Ro-52 IgG\n*Anti-PM-Scl IgG\n*Anti-Nucleosome IgG\n12 НЕОСПОРИМЫХ ПРЕИМУЩЕСТВ РЕАГЕНТОВ MAGLUMI\n1 Вся линейка реагентов может быть использована на любой модели MAGLUMI\n2 Наборы реагентов укомплектованы контролями и калибраторами для экономии времени и финансов лаборатории\n3 Наборы реагентов выпускаются по 100, 50 или 30 тестов в упаковке, что позволяет подбирать необходимое количество тестов для закупа\n4 RFID-метка на картридже реагента позволяет автоматически считывать информацию о реагенте и его настройках\n5 Длительные сроки хранения реагентов и их стабильность высоко оценены специалистами по всему миру\n6 Стандартные условия хранения наборов не требуют специального складского оборудования\n7 Компания SNIBE с завидной регулярностью выпускает новые тесты и совершенствует существующую линейку\n8 Информационная поддержка пользователей по референсным значениям и применению реагентов, а также, семинары/тренинги по новым реагентам\n9 Реагенты MAGLUMI совместимы с междуна- родными контролями третьей стороны\n10 Реагенты успешно проходят программы внешнего контроля качества RIQAS от RANDOX\n11 Высокое качество реагентов отмечено европейскими и американскими сертификатами СЕ и FDA\n12 Большая часть реагентов имеет регистрационные удостоверения РУз"
@@ -1472,7 +1472,7 @@
     "name": "BLOZER 200",
     "category": "Иммуногематология",
     "brand": "BLOZER",
-    "shortDescription": "Полностью автоматический анализатор гелевой агглютинации.",
+    "shortDescription": "Полностью автоматический анализатор гелевой агглютинации: иммуногематология и системы групп крови.",
     "fullDescription": "BLOZER 200, полностью автоматический иммуногематологический анализатор на основе гель-картной агглютинации (золотой стандарт). 96 гелевых карт/час, 144 образца. Применение: акушерство, трансфузиология, хирургия, гематология, реанимация и неонатология.",
     "specifications": [
       {
@@ -1497,8 +1497,8 @@
     ],
     "featured": false,
     "isNew": false,
-    "shortDescriptionUz": "Toʻliq avtomatik gel agglyutinatsiya analizatori.",
-    "shortDescriptionEn": "Fully automatic gel-card agglutination analyzer.",
+    "shortDescriptionUz": "Toʻliq avtomatik gel aglyutinatsiya analizatori: immunogematologiya va qon guruhi tizimlari.",
+    "shortDescriptionEn": "Fully automatic gel agglutination analyzer: immunohematology and blood group systems.",
     "fullDescriptionUz": "BLOZER 200, gel-kartali agglyutinatsiyaga (oltin standart) asoslangan toʻliq avtomatik immunogematologik analizator. Soatiga 96 gel-karta, 144 namuna. Qoʻllanilishi: akusherlik, transfuziologiya, jarrohlik, gematologiya, reanimatsiya va neonatologiya.",
     "fullDescriptionEn": "BLOZER 200 is a fully automatic immunohematology analyzer based on gel-card agglutination (the gold standard). 96 gel cards/hour, 144 samples. Applications: obstetrics, transfusion medicine, surgery, hematology, intensive care and neonatology.",
     "detailedDescription": "Технология\nBLOZER 200 использует метод гель-картной агглютинации, который является современным стандартом в иммуногематологии и обеспечивает:\nвысокую воспроизводимость результатов\nчёткую визуализацию реакции\nминимизацию ошибок интерпретации\nстабильность результатов при хранении\nФункциональные возможности\nСистема выполняет широкий спектр исследований:\nопределение группы крови ABO\nтипирование по системе Rh\nпрямая и непрямая проба Кумбса\nтесты на совместимость (cross-match)\nПоддержка различных типов гель-карт позволяет гибко адаптировать систему под задачи лаборатории.\nПроизводительность\nBLOZER 200 обеспечивает эффективную работу при высокой загрузке:\nдо 96 гель-карт в час\nдо 144 образцов в работе\nдо 12 реагентов одновременно\nиспользование 2 центрифуг по 12 карт\nЭто позволяет значительно ускорить проведение исследований и увеличить пропускную способность лаборатории.\nАвтоматизация и процессы\nАнализатор полностью автоматизирует все этапы исследования:\nуправление образцами и гель-картами\nинкубация и центрифугирование\nсчитывание и интерпретация результатов\nдокументирование и передача данных\nСистема поддерживает интеграцию с ЛИС, обеспечивая централизованное управление данными.\nПреимущества\nполная автоматизация иммуногематологических тестов\nснижение влияния человеческого фактора\nвысокая скорость и пропускная способность\nстандартизация результатов\nнадёжность и точность диагностики\nПрименение\nBLOZER 200 используется в:\nтрансфузиологии\nклинических лабораториях\nакушерстве и неонатологии\nхирургии и реанимации\nИтог\nBLOZER 200 это современное решение для иммуногематологии, которое объединяет точность метода гель-карт, автоматизацию процессов и высокую производительность. Анализатор позволяет лабораториям повысить качество исследований, ускорить работу и обеспечить безопасность пациентов."
@@ -1538,7 +1538,7 @@
     "name": "Evidence Multistat",
     "category": "Токсикология",
     "brand": "Randox",
-    "shortDescription": "Биочиповый иммунофлуоресцентный анализатор на 500+ веществ.",
+    "shortDescription": "Биочиповый анализатор для токсикологии: тестирование на наркотические средства, 500+ веществ и метаболитов.",
     "fullDescription": "Evidence Multistat от Randox, полностью автоматизированный биочиповый иммунофлуоресцентный анализатор. Биочиповая технология (BAT), микроматрица 7×7, до 44 единиц. Определяет 500+ веществ и метаболитов. Применение: аллергия, аутоиммунные и воспалительные заболевания, наркотики и лекарства, вызывающие зависимость.",
     "specifications": [
       {
@@ -1563,8 +1563,8 @@
     ],
     "featured": true,
     "isNew": false,
-    "shortDescriptionUz": "500+ moddani aniqlovchi biochip immunoflyuoressent analizator.",
-    "shortDescriptionEn": "Biochip immunofluorescent analyzer for 500+ substances.",
+    "shortDescriptionUz": "Toksikologiya uchun biochip analizatori: giyohvand moddalarga test, 500+ modda va metabolit.",
+    "shortDescriptionEn": "Biochip toxicology analyzer: drugs-of-abuse testing, 500+ substances and metabolites.",
     "fullDescriptionUz": "Randox Evidence Multistat, toʻliq avtomatlashtirilgan biochip immunoflyuoressent analizator. Biochip texnologiyasi (BAT), 7×7 mikromatritsa, 44 birlikgacha. 500+ modda va metabolitni aniqlaydi. Qoʻllanilishi: allergiya, autoimmun va yalligʻlanish kasalliklari, giyohvandlik va bogʻliqlik keltiruvchi dorilar.",
     "fullDescriptionEn": "Randox's Evidence Multistat is a fully automated biochip immunofluorescent analyzer. Biochip Array Technology (BAT) — a 7×7 microarray, up to 44 units. Detects 500+ substances and metabolites. Applications: allergy, autoimmune and inflammatory diseases, drugs of abuse and addictive medications.",
     "detailedDescription": "Технология\nВ основе системы лежит биочиповая технология (Biochip Array Technology), которая обеспечивает:\nодновременное определение десятков параметров\nвысокую чувствительность и специфичность\nстабильность и воспроизводимость результатов\nмультианализ из одной пробы\nКаждый биочип содержит массив микрореакционных зон с реагентами и контролями качества, что позволяет проводить комплексное исследование всего за 17 минут .\nДиагностические возможности\nEvidence MultiSTAT позволяет выявлять:\nнаркотические вещества (включая классические и синтетические)\nлекарственные препараты\nобезболивающие\nантидепрессанты\nметаболиты различных соединений\nСистема способна обнаруживать более 500 веществ и их производных, что делает её мощным инструментом для токсикологической диагностики.\nПроизводительность и удобство\nАнализатор ориентирован на быструю и простую работу:\nполностью автоматизированный процесс\nсенсорный интерфейс (тач-скрин)\nминимальные требования к обучению персонала\nбыстрый запуск и получение результатов\nЭто позволяет использовать систему не только в лабораториях, но и в условиях, где требуется оперативная диагностика.\nОбласти применения\nEvidence MultiSTAT широко применяется в:\nбольницах и скорой медицинской помощи\nреабилитационных центрах\nаэропортах и службах безопасности\nпромышленности и производственных предприятиях\nДополнительные панели\nСистема поддерживает специализированные панели для диагностики:\nострых состояний (включая дыхательную недостаточность)\nвоспалительных процессов\nнейрососудистых нарушений\nпочечной дисфункции\nИтог\nEvidence MultiSTAT это высокотехнологичное решение для токсикологического анализа, которое сочетает скорость, мультианализ и точность. Система позволяет оперативно выявлять широкий спектр веществ, повышая эффективность диагностики и принятия клинических решений."
@@ -2181,7 +2181,7 @@
     "name": "SATLARS T8",
     "category": "Автоматизированная лаборатория",
     "brand": "SNIBE",
-    "shortDescription": "Модульная автоматизированная лаборатория, впервые в Узбекистане.",
+    "shortDescription": "Автоматизированная модульная лаборатория, впервые в Узбекистане.",
     "fullDescription": "SATLARS T8, модульная автоматизированная лабораторная линия, впервые представленная в Узбекистане. Обладатель iF Design Award 2025. Модули: загрузчик (1000 проб/час), центрифугирование (550 проб/час), ввод/вывод (1000 проб/час), снятие крышек (1000 проб/час), двусторонняя 4-канальная транспортная система, запечатывание (1000 проб/час), холодильный модуль (15 360 проб), снятие запечаток (500 проб/час). Хранение до 60 288 образцов, объединение до 4 холодильных модулей. Совместима с Maglumi X6/X8/X10, Biossays C8/C10, Molecision R8.",
     "specifications": [
       {
@@ -2210,8 +2210,8 @@
     ],
     "featured": true,
     "isNew": true,
-    "shortDescriptionUz": "Oʻzbekistonda birinchi marta modulli avtomatlashtirilgan laboratoriya.",
-    "shortDescriptionEn": "Modular automated laboratory, the first in Uzbekistan.",
+    "shortDescriptionUz": "Avtomatlashtirilgan modulli laboratoriya, Oʻzbekistonda birinchi marta.",
+    "shortDescriptionEn": "Automated modular laboratory, the first in Uzbekistan.",
     "fullDescriptionUz": "SATLARS T8, Oʻzbekistonda birinchi marta taqdim etilgan modulli avtomatlashtirilgan laboratoriya liniyasi. iF Design Award 2025 sovrindori. Modullar: yuklagich (soatiga 1000 namuna), sentrifugalash (soatiga 550 namuna), kirish/chiqish (soatiga 1000 namuna), qopqoqlarni olish (soatiga 1000 namuna), ikki tomonlama 4-kanalli transport tizimi, muhrlash (soatiga 1000 namuna), sovutish moduli (15 360 namuna), muhrni olish (soatiga 500 namuna). 60 288 namunagacha saqlash, 4 tagacha sovutish modulini birlashtirish. Maglumi X6/X8/X10, Biossays C8/C10, Molecision R8 bilan moslashuvchan.",
     "fullDescriptionEn": "SATLARS T8 is a modular automated laboratory line, the first ever presented in Uzbekistan. Winner of the iF Design Award 2025. Modules: loader (1000 samples/hour), centrifugation (550 samples/hour), input/output (1000 samples/hour), decapping (1000 samples/hour), a bidirectional 4-lane transport system, sealing (1000 samples/hour), a refrigeration module (15,360 samples), reseal removal (500 samples/hour). Storage for up to 60,288 samples, combining up to 4 refrigeration modules. Compatible with Maglumi X6/X8/X10, Biossays C8/C10, Molecision R8."
   },

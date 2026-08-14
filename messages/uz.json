@@ -33,13 +33,13 @@
     "titleA": "Laboratoriya",
     "titleB": "diagnostikasining",
     "titleHighlight": "ilgʻor texnologiyalari",
-    "subtitle": "Oʻzbekistonda laboratoriya va tibbiy diagnostika sohasidagi 13 jahon yetakchisining rasmiy distribyutori. Tugatish-shartli yetkazib berish, 24/7 servis, xalqaro standartlar."
+    "subtitle": "Oʻzbekistonda laboratoriya va tibbiy diagnostika sohasidagi 13 jahon yetakchisining rasmiy distribyutori: laboratoriya uchun uskunalar, reagentlar va avtomatlashtirish. Kalit topshirish, 24/7 servis, xalqaro standartlar."
   },
   "directions": {
     "eyebrow": "{count} YOʻNALISH",
     "title": "Mahsulot yoʻnalishlari",
     "tileDesc": {
-      "equipment": "Barcha diagnostika yoʻnalishlari uchun avtomatik analizatorlar va laboratoriya tizimlari, kalit topshirish asosida yetkazib berish va servis bilan.",
+      "equipment": "Barcha diagnostika yoʻnalishlari uchun avtomatik analizatorlar va laboratoriyani avtomatlashtirish tizimlari, kalit topshirish asosida yetkazib berish va servis bilan.",
       "reagents": "Barcha tadqiqot guruhlari uchun original reagentlar va test-tizimlar, analizatorlar bilan toʻliq mos.",
       "consumables": "Muayyan uskuna modellariga moslashgan original sarf materiallari: kyuvetalar, uchliklar, eritmalar va boshlangʻich toʻplamlar.",
       "controls": "Laboratoriya ichki sifat nazorati va analizatorlarni kalibrlash uchun nazorat materiallari va kalibratorlar."
@@ -70,7 +70,7 @@
     "sectionTitle": "Xizmat koʻrsatish",
     "turnkey": {
       "title": "Kalit topshirish asosida yetkazib berish",
-      "body": "Toʻliq tsikl: laboratoriya vazifalariga mos konfiguratsiyani tanlash, yetkazib berish, oʻrnatish, ishga tushirish va xodimlarni oʻqitish. Siz ishga tayyor yechimni va har bir bosqichda hamrohlikni olasiz."
+      "body": "Toʻliq tsikl: laboratoriya vazifalariga mos konfiguratsiyani tanlash, yetkazib berish, oʻrnatish, ishga tushirish va xodimlarni oʻqitish. Siz kalit topshirish asosida tayyor laboratoriyani va har bir bosqichda hamrohlikni olasiz."
     },
     "service": {
       "title": "Servis 24/7",
@@ -87,7 +87,7 @@
   },
   "about": {
     "eyebrow": "KOMPANIYA HAQIDA",
-    "panelText": "Oʻzbekistonda laboratoriya diagnostikasi uskunalarining rasmiy distribyutori. Kalit topshirish asosida yetkazib berish, oʻqitish va asbobning butun xizmat muddati davomida servis.",
+    "panelText": "Oʻzbekistonda tibbiy uskunalar va laboratoriya diagnostikasi tizimlarining rasmiy distribyutori. Kalit topshirish asosida yetkazib berish, oʻqitish va asbobning butun xizmat muddati davomida servis.",
     "stats": {
       "models": "analizator modellari",
       "brands": "hamkor brendlar",
@@ -143,7 +143,7 @@
   },
   "cta": {
     "title": "Laboratoriyangizni jihozlashga tayyormisiz?",
-    "subtitle": "Maslahat va narxni hisoblash uchun biz bilan bogʻlaning"
+    "subtitle": "Laboratoriyangiz yoki klinikangiz uchun uskunalarni tanlash va narxni hisoblash uchun biz bilan bogʻlaning"
   },
   "catalog": {
     "title": "Laboratoriya va diagnostika uskunalari katalogi",
@@ -216,11 +216,11 @@
   "meta": {
     "home": {
       "title": "Laboratoriya uskunalari",
-      "description": "Albatros Health Care, Oʻzbekistonda laboratoriya va tibbiy diagnostikaning rasmiy distribyutori: laboratoriya va diagnostika uskunalari, reagentlar va laboratoriyani avtomatlashtirish."
+      "description": "Oʻzbekistonda laboratoriya va tibbiy uskunalar: diagnostika uskunalari, reagentlar va laboratoriyani avtomatlashtirish. Kalit topshirish va 24/7 servis."
     },
     "catalog": {
       "title": "Uskunalar katalogi",
-      "description": "Jahon brendlarining laboratoriya va diagnostika uskunalari, reagentlar va sarf materiallari katalogi: IXLA, biokimyo, gematologiya, gemostaz, PZR, sifat nazorati."
+      "description": "Laboratoriya va diagnostika uskunalari, reagentlar va sarf materiallari katalogi: IXLA, biokimyo, gematologiya, gemostaz, PZR, siydik tahlili, sifat nazorati."
     },
     "partners": {
       "title": "Brend-hamkorlar",

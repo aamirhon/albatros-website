@@ -34,14 +34,14 @@
     "titleA": "Advanced technology",
     "titleB": "for laboratory",
     "titleHighlight": "diagnostics",
-    "subtitle": "Official distributor of 13 global laboratory and medical diagnostics leaders in Uzbekistan. Turnkey supply, 24/7 service, international standards."
+    "subtitle": "Official distributor of 13 global laboratory and medical diagnostics leaders in Uzbekistan: laboratory equipment, reagents and automation. Turnkey supply, 24/7 service, international standards."
   },
   "directions": {
     "eyebrow": "{count} DIRECTIONS",
     "title": "Product categories",
     "intro": "A full range of solutions — from immunochemistry and hematology to molecular diagnostics and automated laboratory lines.",
     "tileDesc": {
-      "equipment": "Automatic analyzers and laboratory systems for every diagnostic direction, with turnkey supply and service.",
+      "equipment": "Automatic analyzers and laboratory automation systems for every diagnostic direction, with turnkey supply and service.",
       "reagents": "Original reagents and test systems for all study groups, fully compatible with the analyzers.",
       "consumables": "Original consumables for specific equipment models: cuvettes, tips, solutions and starter kits.",
       "controls": "Controls and calibrators for in-lab quality control and analyzer calibration."
@@ -72,7 +72,7 @@
     "sectionTitle": "Service",
     "turnkey": {
       "title": "Turnkey supply",
-      "body": "A full cycle of work: selecting the right configuration for the laboratory's tasks, delivery, installation, commissioning and staff training. You get a solution that's ready to work, with support at every stage."
+      "body": "A full cycle of work: selecting the right configuration for the laboratory's tasks, delivery, installation, commissioning and staff training. You get a turnkey laboratory that's ready to work, with support at every stage."
     },
     "service": {
       "title": "24/7 service",
@@ -145,7 +145,7 @@
   },
   "cta": {
     "title": "Ready to equip your laboratory?",
-    "subtitle": "Contact us for a consultation and cost estimate"
+    "subtitle": "Contact us to select equipment for your laboratory or clinic and get a cost estimate"
   },
   "catalog": {
     "title": "Catalog of laboratory and diagnostic equipment",
@@ -218,11 +218,11 @@
   "meta": {
     "home": {
       "title": "Laboratory Equipment",
-      "description": "Albatros Health Care, official laboratory and medical diagnostics distributor in Uzbekistan: laboratory and diagnostic equipment, reagents and turnkey lab automation."
+      "description": "Laboratory and medical equipment in Uzbekistan: diagnostic equipment, reagents and laboratory automation. Turnkey supply, staff training and 24/7 service."
     },
     "catalog": {
       "title": "Equipment Catalog",
-      "description": "Catalog of laboratory and diagnostic equipment, reagents and consumables from world-leading brands: CLIA, biochemistry, hematology, hemostasis, PCR, quality control."
+      "description": "Catalog of laboratory and diagnostic equipment, reagents and consumables: CLIA, biochemistry, hematology, hemostasis, PCR, urinalysis and quality control."
     },
     "partners": {
       "title": "Brand Partners",
