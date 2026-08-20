@@ -1,12 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { useStrandGuard } from "@/components/ui/useStrandGuard";
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 import { directions, categoryCount, generalDirections, directionPositions } from "@/lib/catalog";
 import { categoryAccent } from "@/lib/categoryAccents";
 import { categoryLabel } from "@/data/i18n";
+
+/** Below lg the grid is capped to this many cards until "Показать все" is tapped. */
+const MOBILE_CAP = 4;
 
 /**
  * "Направления диагностики" - photo-card grid ported pixel-for-pixel from the
@@ -20,6 +27,18 @@ export function CategoriesGrid() {
   const items = directions
     .map((d) => ({ ...d, count: categoryCount(d.name) }))
     .filter((d) => d.count > 0);
+  const [expanded, setExpanded] = useState(false);
+  const { ref, guard } = useStrandGuard<HTMLDivElement>();
+  const capped = items.length > MOBILE_CAP;
+
+  // All cards stay in the DOM (hydration-safe, no layout shift); below lg the
+  // .dir-collapsed rule in globals.css hides everything past MOBILE_CAP.
+  const toggle = () => {
+    setExpanded((v) => {
+      if (v) guard(); // collapsing: keep the visitor next to the grid
+      return !v;
+    });
+  };
 
   return (
     <section className="px-6 py-8 md:pb-16 md:pt-14" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
@@ -85,7 +104,11 @@ export function CategoriesGrid() {
           ))}
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(244px,1fr))", gap: 18 }}>
+        <div ref={ref} className="scroll-mt-24">
+        <div
+          className={cn(capped && !expanded && "dir-collapsed")}
+          style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(244px,1fr))", gap: 18 }}
+        >
           {items.map((item) => {
             const accent = categoryAccent(item.name);
             return (
@@ -142,6 +165,22 @@ export function CategoriesGrid() {
             </Link>
             );
           })}
+        </div>
+
+        {/* Mobile/tablet only - desktop already shows the full grid. */}
+        {capped && (
+          <div className="mt-8 flex justify-center lg:hidden">
+            <button
+              type="button"
+              onClick={toggle}
+              aria-expanded={expanded}
+              className="inline-flex items-center gap-2 rounded-full border border-bg-border bg-bg-card px-5 py-2.5 text-sm font-medium text-text-primary transition-colors hover:border-brand-blue-light"
+            >
+              {expanded ? tc("collapse") : tc("showAll")}
+              <ChevronDown className={cn("h-4 w-4 transition-transform", expanded && "rotate-180")} />
+            </button>
+          </div>
+        )}
         </div>
       </div>
     </section>

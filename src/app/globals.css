@@ -358,6 +358,18 @@ canvas[aria-hidden] {
   .alb-photo {
     display: none !important;
   }
+  /* Touch devices never hover, so the "Смотреть" affordance would never appear:
+     show it permanently below lg so the cards read as clickable. */
+  .alb-go {
+    opacity: 1;
+    transform: none;
+  }
+  /* Directions grid: only the first 4 photo-cards show until the "Показать все"
+     control expands the list (CategoriesGrid); desktop shows all of them. */
+  /* !important: the cards carry an inline display:flex, which would otherwise win. */
+  .dir-collapsed > :nth-child(n + 5) {
+    display: none !important;
+  }
 }
 
 /* ── Capped preview list (CappedList component) ──
