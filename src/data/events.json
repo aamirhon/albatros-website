@@ -1201,5 +1201,21 @@
     "images": [
       "/images/events/e2026-3.jpg"
     ]
+  },
+  {
+    "id": "e2026-4",
+    "year": "2026",
+    "title": "В Ташкенте прошла Illumina Innovation Day 2026",
+    "date": "Сентябрь 2026",
+    "description": "Albatros Health Care совместно с Illumina провели международную конференцию Illumina Innovation Day 2026, объединившую специалистов в области генетики, геномики, онкологии, репродуктивного здоровья и диагностики генетических заболеваний. В программе приняли участие международные эксперты, которые поделились практическим опытом, результатами актуальных исследований и современными подходами в диагностике и генетических технологиях. Участники обсудили последние достижения отрасли и перспективы их применения в клинической практике. Для нас подобные мероприятия дают возможность объединять профессиональное сообщество, делиться знаниями и содействовать развитию современной медицины и генетической диагностики в Узбекистане.",
+    "titleUz": "Toshkentda Illumina Innovation Day 2026 bo‘lib o‘tdi",
+    "descriptionUz": "Albatros Health Care Illumina bilan hamkorlikda genetika, genomika, onkologiya, reproduktiv salomatlik va genetik kasalliklar diagnostikasi yo'nalishidagi mutaxassislarni birlashtirgan xalqaro konferensiya — Illumina Innovation Day 2026 — ni tashkil etdi. Dasturda xalqaro ekspertlar ishtirok etib, o'z amaliy tajribalari, dolzarb tadqiqotlar natijalari hamda diagnostika va genetik texnologiyalardagi zamonaviy yondashuvlarni muhokama qildilar. Ishtirokchilar soha yutuqlari va ularni klinik amaliyotga tatbiq etish istiqbollarini ham ko'rib chiqdilar. Biz uchun bunday tadbirlar professional hamjamiyatni birlashtirish, bilim almashish va O'zbekistonda zamonaviy tibbiyot hamda genetik diagnostika rivojiga hissa qo'shish imkoniyati bo'lib xizmat qilmoqda.",
+    "titleEn": "Illumina Innovation Day 2026 in Tashkent",
+    "descriptionEn": "Albatros Health Care, in partnership with Illumina, hosted the international conference Illumina Innovation Day 2026, bringing together specialists in genetics, genomics, oncology, reproductive health, and the diagnosis of genetic diseases. International experts took part in the program, sharing practical experience, the latest research, and current approaches in diagnostics and genetic technologies. Participants also discussed recent industry developments and their potential clinical applications. For us, such events are an opportunity to unite the professional community, exchange knowledge, and contribute to the development of modern medicine and genetic diagnostics in Uzbekistan.",
+    "type": "conference",
+    "images": [
+      "/images/events/eevent-3.jpg",
+      "/images/events/eevent-4.jpg"
+    ]
   }
 ]
