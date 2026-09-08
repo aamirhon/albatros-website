@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { imgUrl } from "../imgUrl";
 import SearchBox, { useSearch } from "./SearchBox.jsx";
+import useUnsavedChangesGuard from "../hooks/useUnsavedChangesGuard.js";
 
 // Generic list page for Phase 2 content types. Renders a table with thumbnail,
-// custom columns, optional reorder arrows (writes the full new order), hide
-// toggle, edit link and delete. `api` is a resource() from api.js.
+// custom columns, optional reorder arrows, hide toggle, edit link and delete.
+// `api` is a resource() from api.js. Reorder arrows only update local state;
+// the new order is committed+pushed once when "Сохранить и опубликовать" is
+// clicked, instead of on every click (each click used to be its own deploy).
 export default function ContentList({
   title,
   api,
@@ -19,9 +22,13 @@ export default function ContentList({
   deleteConfirm = (item) => `Удалить "${item.name || item.title || item.id}"? Это действие необратимо.`,
 }) {
   const [items, setItems] = useState([]);
+  // id order as last loaded from (or saved to) the server, to detect pending
+  // reorder changes that haven't been published yet.
+  const [savedOrder, setSavedOrder] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [busyId, setBusyId] = useState("");
+  const [savingOrder, setSavingOrder] = useState(false);
   // Search filters only what is displayed; edit/hide/delete use item.id so they
   // are unaffected. Reorder is index based, so it is hidden while filtering (a
   // filtered view has no meaningful adjacent-row order to write back).
@@ -30,29 +37,47 @@ export default function ContentList({
   const visible = searchText ? filtered : items;
   const showReorder = canReorder && !searching;
 
+  const orderDirty =
+    canReorder &&
+    items.length === savedOrder.length &&
+    items.some((it, i) => it.id !== savedOrder[i]);
+
+  useUnsavedChangesGuard(orderDirty);
+
   const load = () => {
     setLoading(true);
-    api
+    return api
       .list()
-      .then((d) => setItems(d.items))
+      .then((d) => {
+        setItems(d.items);
+        setSavedOrder(d.items.map((x) => x.id));
+      })
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
   };
-  useEffect(load, []);
+  useEffect(() => {
+    load();
+  }, []);
 
-  const move = async (i, dir) => {
+  const move = (i, dir) => {
     const j = i + dir;
     if (j < 0 || j >= items.length) return;
-    const ids = items.map((x) => x.id);
-    [ids[i], ids[j]] = [ids[j], ids[i]];
-    setBusyId(items[i].id);
+    setItems((prev) => {
+      const next = prev.slice();
+      [next[i], next[j]] = [next[j], next[i]];
+      return next;
+    });
+  };
+
+  const saveOrder = async () => {
+    setSavingOrder(true);
     try {
-      await api.reorder(ids);
-      load();
+      await api.reorder(items.map((x) => x.id));
+      await load();
     } catch (e) {
       alert(e.message);
     } finally {
-      setBusyId("");
+      setSavingOrder(false);
     }
   };
 
@@ -91,9 +116,16 @@ export default function ContentList({
           <h1 className="text-2xl font-extrabold text-ink">{title}</h1>
           <p className="text-sm text-soft">Всего: {items.length}</p>
         </div>
-        <Link to={`${basePath}/new`} className="btn-primary">
-          + Добавить
-        </Link>
+        <div className="flex items-center gap-3">
+          {orderDirty && (
+            <button className="btn-primary" onClick={saveOrder} disabled={savingOrder}>
+              {savingOrder ? "Сохранение..." : "Сохранить и опубликовать"}
+            </button>
+          )}
+          <Link to={`${basePath}/new`} className="btn-primary">
+            + Добавить
+          </Link>
+        </div>
       </div>
 
       {searchText && (
@@ -161,14 +193,14 @@ export default function ContentList({
                       <>
                         <button
                           className="btn-ghost"
-                          disabled={i === 0 || busyId === item.id}
+                          disabled={i === 0}
                           onClick={() => move(i, -1)}
                         >
                           ↑
                         </button>
                         <button
                           className="btn-ghost"
-                          disabled={i === items.length - 1 || busyId === item.id}
+                          disabled={i === items.length - 1}
                           onClick={() => move(i, 1)}
                         >
                           ↓
