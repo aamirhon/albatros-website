@@ -42,20 +42,6 @@
     "descriptionEn": "Randox — external and internal laboratory quality control: Acusera controls, the Riqas external quality assessment scheme and biochip analyzers."
   },
   {
-    "id": "dymind",
-    "name": "Dymind",
-    "logo": "/images/brands/dymind.png",
-    "url": "https://www.dymind.com/en-US/",
-    "description": "Автоматические гематологические анализаторы Dymind с AI-анализом: модели 3-Diff, 5-Diff и 6-Diff, встроенные СОЭ и CRP. Премии Red Dot и iF Design Award.",
-    "founded": "2013",
-    "country": "Китай · Шэньчжэнь",
-    "specialty": "Гематологический анализатор",
-    "specialtyUz": "Gematologik analizatorlar",
-    "specialtyEn": "Hematology analyzers",
-    "descriptionUz": "Dymind avtomatik gematologik analizatorlari, AI tahlil bilan: 3-Diff, 5-Diff va 6-Diff modellari, ichki ECHT va CRP. Red Dot va iF Design Award sovrindori.",
-    "descriptionEn": "Dymind automatic hematology analyzers with AI analysis: 3-Diff, 5-Diff and 6-Diff models with built-in ESR and CRP. Red Dot and iF Design Award winner."
-  },
-  {
     "id": "illumina",
     "name": "Illumina",
     "logo": "/images/brands/illumina.png",
@@ -68,6 +54,20 @@
     "specialtyEn": "Genetic analyzers",
     "descriptionUz": "Illumina — genetik analizatorlar va NGS sekvenatorlari: stol usti tizimlardan yuqori unumdor platformalargacha. Yangi avlod sekvenatsiyasi kashshofi.",
     "descriptionEn": "Illumina — genetic analyzers and NGS sequencers, from benchtop systems to high-throughput platforms. The pioneer of next-generation sequencing."
+  },
+  {
+    "id": "dymind",
+    "name": "Dymind",
+    "logo": "/images/brands/dymind.png",
+    "url": "https://www.dymind.com/en-US/",
+    "description": "Автоматические гематологические анализаторы Dymind с AI-анализом: модели 3-Diff, 5-Diff и 6-Diff, встроенные СОЭ и CRP. Премии Red Dot и iF Design Award.",
+    "founded": "2013",
+    "country": "Китай · Шэньчжэнь",
+    "specialty": "Гематологический анализатор",
+    "specialtyUz": "Gematologik analizatorlar",
+    "specialtyEn": "Hematology analyzers",
+    "descriptionUz": "Dymind avtomatik gematologik analizatorlari, AI tahlil bilan: 3-Diff, 5-Diff va 6-Diff modellari, ichki ECHT va CRP. Red Dot va iF Design Award sovrindori.",
+    "descriptionEn": "Dymind automatic hematology analyzers with AI analysis: 3-Diff, 5-Diff and 6-Diff models with built-in ESR and CRP. Red Dot and iF Design Award winner."
   },
   {
     "id": "werfen",
