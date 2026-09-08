@@ -127,6 +127,48 @@ async function processPhoto(buffer, baseName, publicDir) {
   return `/${publicDir}/${name}`;
 }
 
+// Event photo: the admin crops/frames the source image client-side (fixed to
+// the public card's 4:3 ratio) and we extract exactly that rectangle here, so
+// the published image is pixel-for-pixel what the admin previewed rather than
+// re-cropped again by CSS on the public site. cropRect is in the pixel space
+// of the EXIF-rotated image (matching what a browser <img>/canvas shows).
+const EVENT_PHOTO_W = 1600;
+const EVENT_PHOTO_H = 1200;
+
+async function processEventPhoto(buffer, baseName, publicDir, cropRect) {
+  if (
+    !cropRect ||
+    ![cropRect.left, cropRect.top, cropRect.width, cropRect.height].every(
+      (n) => typeof n === "number" && Number.isFinite(n)
+    )
+  ) {
+    throw new Error("Нужна область обрезки (crop).");
+  }
+
+  const dir = path.join(SITE_ROOT, "public", ...publicDir.split("/"));
+  const name = uniqueNameIn(dir, baseName, "jpg", "photo");
+
+  // Rotate to a concrete buffer first so extract() coordinates land on the
+  // same pixel grid the crop UI (and any EXIF-aware image viewer) showed.
+  const { data, info } = await sharp(buffer)
+    .rotate()
+    .toBuffer({ resolveWithObject: true });
+
+  const left = Math.max(0, Math.min(Math.round(cropRect.left), info.width - 1));
+  const top = Math.max(0, Math.min(Math.round(cropRect.top), info.height - 1));
+  const width = Math.max(1, Math.min(Math.round(cropRect.width), info.width - left));
+  const height = Math.max(1, Math.min(Math.round(cropRect.height), info.height - top));
+
+  const out = await sharp(data)
+    .extract({ left, top, width, height })
+    .resize(EVENT_PHOTO_W, EVENT_PHOTO_H, { fit: "fill" })
+    .flatten({ background: { r: 255, g: 255, b: 255 } })
+    .jpeg({ quality: 88 })
+    .toBuffer();
+  fs.writeFileSync(path.join(dir, name), out);
+  return `/${publicDir}/${name}`;
+}
+
 function isPdf(buffer) {
   return buffer && buffer.length > 4 && buffer.slice(0, 5).toString("latin1") === "%PDF-";
 }
@@ -164,6 +206,9 @@ module.exports = {
   PUBLIC_PREFIX,
   processLogo,
   processPhoto,
+  processEventPhoto,
+  EVENT_PHOTO_W,
+  EVENT_PHOTO_H,
   savePdf,
   isPdf,
   deletePublicFile,

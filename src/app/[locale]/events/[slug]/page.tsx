@@ -73,8 +73,8 @@ export default function EventDetailPage({ params }: { params: { slug: string } }
             <Image
               src={photo}
               alt={title}
-              width={1200}
-              height={750}
+              width={1600}
+              height={1200}
               priority
               className="h-auto w-full object-cover"
               sizes="(max-width: 896px) 100vw, 896px"

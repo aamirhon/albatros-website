@@ -1,7 +1,19 @@
 "use strict";
 const { makeContentRouter } = require("../contentRouter");
 const { EVENTS_PATH } = require("../config");
-const { processPhoto } = require("../images");
+const { processEventPhoto } = require("../images");
+
+// The crop rectangle travels as a JSON string multipart field (the browser
+// crop tool computes it in the source image's pixel space).
+function parseCropRect(raw) {
+  if (typeof raw !== "string" || !raw) return null;
+  try {
+    const r = JSON.parse(raw);
+    return { left: r.left, top: r.top, width: r.width, height: r.height };
+  } catch {
+    return null;
+  }
+}
 
 // Events = src/data/events.json. Existing schema:
 // { id, year, title, date ("Месяц ГГГГ"), description, titleUz, descriptionUz }
@@ -110,7 +122,8 @@ const router = makeContentRouter({
   idFallback: "event",
   fileFields: { images: "array" },
   uploads: {
-    photo: (buffer, body) => processPhoto(buffer, body.base, "images/events"),
+    photo: (buffer, body) =>
+      processEventPhoto(buffer, body.base, "images/events", parseCropRect(body.crop)),
   },
 });
 

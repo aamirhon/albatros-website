@@ -5,6 +5,7 @@ import { imgUrl } from "../imgUrl";
 import { EVENT_TYPE_RU, RU_MONTHS, wordCount } from "./eventTypes.js";
 import DraftUz from "../components/DraftUz.jsx";
 import PublishStatus from "../components/PublishStatus.jsx";
+import EventPhotoCropModal from "../components/EventPhotoCropModal.jsx";
 
 const EMPTY = {
   title: "",
@@ -49,6 +50,10 @@ export default function EventEdit({ mode }) {
   const [error, setError] = useState("");
   const [commit, setCommit] = useState(null);
   const fileRef = useRef(null);
+  // Photos are cropped one at a time before upload: `cropQueue` holds files
+  // still waiting, `cropping` is the one currently shown in the crop modal.
+  const [cropQueue, setCropQueue] = useState([]);
+  const [cropping, setCropping] = useState(null);
 
   useEffect(() => {
     if (isNew) return;
@@ -72,22 +77,44 @@ export default function EventEdit({ mode }) {
 
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
-  const doUpload = async (files) => {
+  // Selecting/dropping files just queues them; the crop modal (driven by the
+  // effect below) pops one at a time and only uploads once the admin confirms
+  // a crop for it.
+  const doUpload = (files) => {
     if (!files || !files.length) return;
+    setCropQueue((q) => [...q, ...files]);
+  };
+
+  useEffect(() => {
+    if (!cropping && cropQueue.length) {
+      setCropping(cropQueue[0]);
+      setCropQueue((q) => q.slice(1));
+    }
+  }, [cropping, cropQueue]);
+
+  const confirmCrop = async (croppedAreaPixels) => {
+    const file = cropping;
+    setCropping(null);
     setUploading(true);
     setError("");
     try {
       const base = "e" + (form.year || "event");
-      for (const file of files) {
-        const d = await eventsApi.upload(file, "photo", base);
-        setForm((f) => ({ ...f, images: [...f.images, d.path] }));
-      }
+      const crop = JSON.stringify({
+        left: croppedAreaPixels.x,
+        top: croppedAreaPixels.y,
+        width: croppedAreaPixels.width,
+        height: croppedAreaPixels.height,
+      });
+      const d = await eventsApi.upload(file, "photo", base, { crop });
+      setForm((f) => ({ ...f, images: [...f.images, d.path] }));
     } catch (e) {
       setError(e.message);
     } finally {
       setUploading(false);
     }
   };
+
+  const cancelCrop = () => setCropping(null);
 
   const moveImage = (i, dir) => {
     setForm((f) => {
@@ -148,6 +175,9 @@ export default function EventEdit({ mode }) {
 
   return (
     <div>
+      {cropping && (
+        <EventPhotoCropModal file={cropping} onCancel={cancelCrop} onConfirm={confirmCrop} />
+      )}
       <div className="mb-6 flex items-center justify-between">
         <div>
           <Link to="/events" className="text-sm text-soft hover:text-clinical">
@@ -268,7 +298,8 @@ export default function EventEdit({ mode }) {
               }}
             />
             <div className="mt-2 text-xs">
-              Фото сжимаются до веб-размера (до 1600px). {uploading && "Загрузка..."}
+              Перед загрузкой фото можно обрезать под формат карточки (1600×1200).{" "}
+              {uploading && "Загрузка..."}
             </div>
           </div>
 

@@ -87,11 +87,12 @@ function resource(name) {
       request(`/${name}/${id}/visibility`, { method: "PATCH", body: JSON.stringify({ hidden }) }),
     reorder: (ids) => request(`/${name}/reorder`, { method: "POST", body: JSON.stringify({ ids }) }),
     remove: (id) => request(`/${name}/${id}`, { method: "DELETE" }),
-    upload: (file, kind, base) => {
+    upload: (file, kind, base, extra = {}) => {
       const fd = new FormData();
       fd.append("file", file);
       fd.append("kind", kind);
       fd.append("base", base || "");
+      for (const [k, v] of Object.entries(extra)) fd.append(k, v);
       return request(`/${name}/upload`, { method: "POST", body: fd });
     },
   };
