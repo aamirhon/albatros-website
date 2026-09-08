@@ -28,20 +28,6 @@
     "descriptionEn": "BD BACTEC — automated blood culture systems and Becton Dickinson automated microbiology systems for clinical microbiology."
   },
   {
-    "id": "randox",
-    "name": "Randox",
-    "logo": "/images/brands/randox.png",
-    "url": "https://www.randox.com/",
-    "description": "Randox — внешний и внутренний контроль качества лаборатории: контроли Acusera, крупнейшая схема внешней оценки качества Riqas и биочиповые анализаторы.",
-    "founded": "1982",
-    "country": "Великобритания · Кримлин",
-    "specialty": "Контроль качества (ВОК/ВКК)",
-    "specialtyUz": "Laboratoriya sifat nazorati",
-    "specialtyEn": "Laboratory quality control",
-    "descriptionUz": "Randox — laboratoriyaning tashqi va ichki sifat nazorati: Acusera kontrollari, Riqas xalqaro tashqi sifat baholash sxemasi va biochip analizatorlari.",
-    "descriptionEn": "Randox — external and internal laboratory quality control: Acusera controls, the Riqas external quality assessment scheme and biochip analyzers."
-  },
-  {
     "id": "illumina",
     "name": "Illumina",
     "logo": "/images/brands/illumina.png",
@@ -54,6 +40,20 @@
     "specialtyEn": "Genetic analyzers",
     "descriptionUz": "Illumina — genetik analizatorlar va NGS sekvenatorlari: stol usti tizimlardan yuqori unumdor platformalargacha. Yangi avlod sekvenatsiyasi kashshofi.",
     "descriptionEn": "Illumina — genetic analyzers and NGS sequencers, from benchtop systems to high-throughput platforms. The pioneer of next-generation sequencing."
+  },
+  {
+    "id": "randox",
+    "name": "Randox",
+    "logo": "/images/brands/randox.png",
+    "url": "https://www.randox.com/",
+    "description": "Randox — внешний и внутренний контроль качества лаборатории: контроли Acusera, крупнейшая схема внешней оценки качества Riqas и биочиповые анализаторы.",
+    "founded": "1982",
+    "country": "Великобритания · Кримлин",
+    "specialty": "Контроль качества (ВОК/ВКК)",
+    "specialtyUz": "Laboratoriya sifat nazorati",
+    "specialtyEn": "Laboratory quality control",
+    "descriptionUz": "Randox — laboratoriyaning tashqi va ichki sifat nazorati: Acusera kontrollari, Riqas xalqaro tashqi sifat baholash sxemasi va biochip analizatorlari.",
+    "descriptionEn": "Randox — external and internal laboratory quality control: Acusera controls, the Riqas external quality assessment scheme and biochip analyzers."
   },
   {
     "id": "dymind",
