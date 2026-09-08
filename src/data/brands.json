@@ -14,20 +14,6 @@
     "descriptionEn": "Snibe Maglumi — CLIA analyzers and immunoassays: Maglumi X3, X6, X8 and X10. A global CLIA leader, #1 in Uzbekistan, with over 40,000 analyzers installed."
   },
   {
-    "id": "bd",
-    "name": "BD",
-    "logo": "/images/brands/bd.png",
-    "url": "https://www.bd.com/en-us",
-    "description": "BD BACTEC — автоматические бактериологические гемокультиваторы и автоматизированные микробиологические системы Becton Dickinson для клинической микробиологии.",
-    "founded": "1897",
-    "country": "США · Нью-Джерси",
-    "specialty": "Микробиология и гемокультуры",
-    "specialtyUz": "Mikrobiologiya va gemokultura",
-    "specialtyEn": "Microbiology and blood cultures",
-    "descriptionUz": "BD BACTEC — avtomatik bakteriologik gemokultivatorlar va Becton Dickinson avtomatlashtirilgan mikrobiologik tizimlari, klinik mikrobiologiya uchun.",
-    "descriptionEn": "BD BACTEC — automated blood culture systems and Becton Dickinson automated microbiology systems for clinical microbiology."
-  },
-  {
     "id": "illumina",
     "name": "Illumina",
     "logo": "/images/brands/illumina.png",
@@ -40,6 +26,20 @@
     "specialtyEn": "Genetic analyzers",
     "descriptionUz": "Illumina — genetik analizatorlar va NGS sekvenatorlari: stol usti tizimlardan yuqori unumdor platformalargacha. Yangi avlod sekvenatsiyasi kashshofi.",
     "descriptionEn": "Illumina — genetic analyzers and NGS sequencers, from benchtop systems to high-throughput platforms. The pioneer of next-generation sequencing."
+  },
+  {
+    "id": "bd",
+    "name": "BD",
+    "logo": "/images/brands/bd.png",
+    "url": "https://www.bd.com/en-us",
+    "description": "BD BACTEC — автоматические бактериологические гемокультиваторы и автоматизированные микробиологические системы Becton Dickinson для клинической микробиологии.",
+    "founded": "1897",
+    "country": "США · Нью-Джерси",
+    "specialty": "Микробиология и гемокультуры",
+    "specialtyUz": "Mikrobiologiya va gemokultura",
+    "specialtyEn": "Microbiology and blood cultures",
+    "descriptionUz": "BD BACTEC — avtomatik bakteriologik gemokultivatorlar va Becton Dickinson avtomatlashtirilgan mikrobiologik tizimlari, klinik mikrobiologiya uchun.",
+    "descriptionEn": "BD BACTEC — automated blood culture systems and Becton Dickinson automated microbiology systems for clinical microbiology."
   },
   {
     "id": "randox",
