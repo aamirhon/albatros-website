@@ -83,7 +83,7 @@ export default function ContactPage() {
               // locale, so the labels never stay stuck in the previous language.
               key={locale}
               title={t("mapTitle")}
-              src={`https://yandex.com/map-widget/v1/?ll=69.285340%2C41.328419&mode=poi&poi%5Bpoint%5D=69.285340%2C41.328419&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D15895749238&z=17&lang=${mapLang}`}
+              src={`https://yandex.com/map-widget/v1/?ll=69.257002%2C41.348611&mode=poi&poi%5Bpoint%5D=69.257002%2C41.348611&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D232380070353&z=17&lang=${mapLang}`}
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"

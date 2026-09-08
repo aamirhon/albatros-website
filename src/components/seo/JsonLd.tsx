@@ -31,7 +31,7 @@ export function OrganizationJsonLd({ locale }: { locale: AppLocale }) {
     foundingDate: "2017",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "ул. Халкобад, 17",
+      streetAddress: "4-й проезд Чильтуган, 24",
       addressLocality: "Ташкент",
       addressCountry: "UZ",
     },
