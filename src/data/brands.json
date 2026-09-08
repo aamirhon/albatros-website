@@ -56,20 +56,6 @@
     "descriptionEn": "Dymind automatic hematology analyzers with AI analysis: 3-Diff, 5-Diff and 6-Diff models with built-in ESR and CRP. Red Dot and iF Design Award winner."
   },
   {
-    "id": "werfen",
-    "name": "Werfen",
-    "logo": "/images/brands/werfen.png",
-    "url": "https://www.werfen.com/en",
-    "description": "Werfen — анализаторы гемостаза и КЩС: автоматические коагулометры ACL TOP и анализаторы критических состояний GEM Premier. Поставка и сервис в Узбекистане.",
-    "founded": "1966",
-    "country": "Испания · Барселона",
-    "specialty": "Анализаторы гемостаза и КЩС",
-    "specialtyUz": "Gemostaz analizatorlari",
-    "specialtyEn": "Hemostasis analyzers",
-    "descriptionUz": "Werfen — gemostaz va KIShH analizatorlari: ACL TOP avtomatik koagulometrlari va GEM Premier kritik holatlar analizatorlari. Oʻzbekistonda servis.",
-    "descriptionEn": "Werfen — hemostasis and blood gas analyzers: ACL TOP automated coagulation analyzers and GEM Premier critical care systems. Supply and service in Uzbekistan."
-  },
-  {
     "id": "illumina",
     "name": "Illumina",
     "logo": "/images/brands/illumina.png",
@@ -82,6 +68,20 @@
     "specialtyEn": "Genetic analyzers",
     "descriptionUz": "Illumina — genetik analizatorlar va NGS sekvenatorlari: stol usti tizimlardan yuqori unumdor platformalargacha. Yangi avlod sekvenatsiyasi kashshofi.",
     "descriptionEn": "Illumina — genetic analyzers and NGS sequencers, from benchtop systems to high-throughput platforms. The pioneer of next-generation sequencing."
+  },
+  {
+    "id": "werfen",
+    "name": "Werfen",
+    "logo": "/images/brands/werfen.png",
+    "url": "https://www.werfen.com/en",
+    "description": "Werfen — анализаторы гемостаза и КЩС: автоматические коагулометры ACL TOP и анализаторы критических состояний GEM Premier. Поставка и сервис в Узбекистане.",
+    "founded": "1966",
+    "country": "Испания · Барселона",
+    "specialty": "Анализаторы гемостаза и КЩС",
+    "specialtyUz": "Gemostaz analizatorlari",
+    "specialtyEn": "Hemostasis analyzers",
+    "descriptionUz": "Werfen — gemostaz va KIShH analizatorlari: ACL TOP avtomatik koagulometrlari va GEM Premier kritik holatlar analizatorlari. Oʻzbekistonda servis.",
+    "descriptionEn": "Werfen — hemostasis and blood gas analyzers: ACL TOP automated coagulation analyzers and GEM Premier critical care systems. Supply and service in Uzbekistan."
   },
   {
     "id": "lifotronic",
