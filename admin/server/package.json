@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "node --watch src/index.js",
     "start": "node src/index.js",
-    "adduser": "node scripts/adduser.js"
+    "adduser": "node scripts/adduser.js",
+    "users": "node scripts/users.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.112.1",

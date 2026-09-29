@@ -4,7 +4,11 @@ const path = require("path");
 const fs = require("fs");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const { PORT, CLIENT_ORIGIN, SITE_ROOT, CATALOG_PATH } = require("./config");
+const { PORT, CLIENT_ORIGIN, SITE_ROOT, TRUST_PROXY, assertStrongJwtSecret } = require("./config");
+
+// Refuse to start with a missing/placeholder/short JWT_SECRET (see config.js).
+assertStrongJwtSecret();
+const { isSecureRequest } = require("./auth");
 
 const authRoutes = require("./routes/auth.routes");
 const { router: metaRoutes } = require("./routes/meta.routes");
@@ -20,6 +24,44 @@ const publishRoutes = require("./routes/publish.routes");
 const { checkGitIdentity } = require("./git");
 
 const app = express();
+app.set("trust proxy", TRUST_PROXY);
+app.disable("x-powered-by");
+
+// Security headers for both the API and the built UI (no extra dependency).
+// CSP: everything from our own origin only; blob: images for the local crop
+// preview; inline styles because react-easy-crop injects a <style> tag.
+const CSP = [
+  "default-src 'self'",
+  "script-src 'self'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob:",
+  "font-src 'self' data:",
+  "connect-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+].join("; ");
+
+app.use((req, res, next) => {
+  res.set({
+    "Content-Security-Policy": CSP,
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "no-referrer",
+    "Cross-Origin-Opener-Policy": "same-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+  });
+  if (isSecureRequest(req)) {
+    res.set("Strict-Transport-Security", "max-age=31536000");
+  }
+  // Admin data must never be stored by shared/browser caches (public site
+  // images/files served through the API bridge may be cached as usual).
+  if (req.path.startsWith("/api/") && !/^\/api\/site-(images|files)\//.test(req.path)) {
+    res.set("Cache-Control", "no-store");
+  }
+  next();
+});
 
 app.use(
   cors({
@@ -31,7 +73,8 @@ app.use(express.json({ limit: "5mb" }));
 app.use(cookieParser());
 
 app.get("/api/health", (req, res) => {
-  res.json({ ok: true, siteRoot: SITE_ROOT, catalog: CATALOG_PATH });
+  // Public endpoint: don't disclose server filesystem paths.
+  res.json({ ok: true });
 });
 
 // Serve the site's public images (read-only) so the admin UI can render product
