@@ -4,6 +4,7 @@ server/.env
 server/users.json
 server/users.json.bak-*
 server/.users.*.tmp
+server/.admin-jwt-secret
 server/uploads-tmp/
 client/dist
 *.log

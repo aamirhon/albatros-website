@@ -1,6 +1,7 @@
 "use strict";
 const fs = require("fs");
 const path = require("path");
+const { STATE_DIR } = require("./config");
 
 // Brute-force protection for POST /api/auth/login plus an append-only log of
 // every login attempt. In-memory counters are enough for a single-process
@@ -53,9 +54,29 @@ setInterval(() => {
 }, 60 * 1000).unref();
 
 // ── auth log ──
-// One JSON line per attempt in admin/server/auth.log (gitignored via *.log,
-// owner-only permissions). Useful to see who logged in, when and from where.
-const LOG_PATH = path.join(__dirname, "..", "auth.log");
+// One JSON line per event in admin-auth.log next to users.json (STATE_DIR, so
+// it survives redeploys; gitignored via *.log; owner-only permissions). Shows
+// who logged in, when and from where, and every change to the account list.
+const LOG_PATH = path.join(STATE_DIR, "admin-auth.log");
+
+// Last `limit` events, newest first (for the Security page).
+function readAuthLog(limit = 200) {
+  try {
+    const lines = fs.readFileSync(LOG_PATH, "utf8").trim().split("\n").slice(-limit);
+    return lines
+      .map((l) => {
+        try {
+          return JSON.parse(l);
+        } catch {
+          return null;
+        }
+      })
+      .filter(Boolean)
+      .reverse();
+  } catch {
+    return [];
+  }
+}
 
 function logEvent(event, data = {}) {
   const text = JSON.stringify({ time: new Date().toISOString(), event, ...data });
@@ -76,4 +97,4 @@ function logAuth(event, req, email, extra = {}) {
   });
 }
 
-module.exports = { retryAfter, recordFailure, recordSuccess, logAuth, logEvent };
+module.exports = { retryAfter, recordFailure, recordSuccess, logAuth, logEvent, readAuthLog };

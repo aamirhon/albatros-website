@@ -1,6 +1,7 @@
 "use strict";
 // Shared readline prompts for the user-management CLIs.
 const readline = require("readline");
+const { passwordProblem, MIN_PASSWORD_LENGTH } = require("../src/users");
 
 function ask(rl, question, { silent = false } = {}) {
   return new Promise((resolve) => {
@@ -26,15 +27,6 @@ function ask(rl, question, { silent = false } = {}) {
 
 function createRl() {
   return readline.createInterface({ input: process.stdin, output: process.stdout });
-}
-
-const MIN_PASSWORD_LENGTH = 12;
-
-function passwordProblem(password) {
-  if (!password || password.length < MIN_PASSWORD_LENGTH) {
-    return `пароль должен быть не короче ${MIN_PASSWORD_LENGTH} символов.`;
-  }
-  return null;
 }
 
 module.exports = { ask, createRl, passwordProblem, MIN_PASSWORD_LENGTH };

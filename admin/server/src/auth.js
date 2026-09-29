@@ -1,6 +1,6 @@
 "use strict";
 const jwt = require("jsonwebtoken");
-const { JWT_SECRET, JWT_EXPIRES_IN, COOKIE_SECURE } = require("./config");
+const { getJwtSecret, JWT_EXPIRES_IN, COOKIE_SECURE } = require("./config");
 const { findById, sessionVersionOf, whyDisallowed } = require("./users");
 
 const COOKIE_NAME = "alba_admin_token";
@@ -9,7 +9,7 @@ function issueToken(user) {
   // Only the user id and session version go in the token; name/email/role are
   // always re-read from users.json, so a deleted or changed account can't
   // keep acting on stale claims.
-  return jwt.sign({ sub: user.id, sv: sessionVersionOf(user) }, JWT_SECRET, {
+  return jwt.sign({ sub: user.id, sv: sessionVersionOf(user) }, getJwtSecret(), {
     algorithm: "HS256",
     expiresIn: JWT_EXPIRES_IN,
   });
@@ -32,7 +32,7 @@ function userFromRequest(req) {
   if (!token) return null;
   let payload;
   try {
-    payload = jwt.verify(token, JWT_SECRET, { algorithms: ["HS256"] });
+    payload = jwt.verify(token, getJwtSecret(), { algorithms: ["HS256"] });
   } catch {
     return null;
   }

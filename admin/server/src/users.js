@@ -61,6 +61,31 @@ function whyDisallowed(user) {
   return null;
 }
 
+const MIN_PASSWORD_LENGTH = 12;
+
+function passwordProblem(password) {
+  if (typeof password !== "string" || password.length < MIN_PASSWORD_LENGTH) {
+    return `пароль должен быть не короче ${MIN_PASSWORD_LENGTH} символов.`;
+  }
+  if (password.length > 256) return "пароль слишком длинный.";
+  return null;
+}
+
+// Copies users.json to users.json.bak-<time> (owner-only) before a destructive
+// change. Returns the backup path, or null if there was nothing to back up.
+function backupUsers() {
+  if (!fs.existsSync(USERS_PATH)) return null;
+  const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const dest = `${USERS_PATH}.bak-${stamp}`;
+  fs.copyFileSync(USERS_PATH, dest);
+  try {
+    fs.chmodSync(dest, 0o600);
+  } catch {
+    /* best effort */
+  }
+  return dest;
+}
+
 function findByEmail(email) {
   const target = normEmail(email);
   return loadUsers().find((u) => normEmail(u.email) === target);
@@ -91,6 +116,9 @@ module.exports = {
   normEmail,
   isValidEmail,
   whyDisallowed,
+  passwordProblem,
+  MIN_PASSWORD_LENGTH,
+  backupUsers,
   findByEmail,
   findById,
   sessionVersionOf,

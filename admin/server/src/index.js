@@ -4,10 +4,21 @@ const path = require("path");
 const fs = require("fs");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const { PORT, CLIENT_ORIGIN, SITE_ROOT, TRUST_PROXY, assertStrongJwtSecret } = require("./config");
+const {
+  PORT,
+  CLIENT_ORIGIN,
+  SITE_ROOT,
+  TRUST_PROXY,
+  ADMIN_EMAILS,
+  jwtSecretStatus,
+} = require("./config");
 
-// Refuse to start with a missing/placeholder/short JWT_SECRET (see config.js).
-assertStrongJwtSecret();
+// Never run with a missing/public JWT_SECRET: config.js substitutes a strong
+// generated one (see there). Report which one is in use.
+console.log(`[admin] JWT secret: ${jwtSecretStatus()}`);
+console.log(
+  `[admin] разрешённые администраторы: ${ADMIN_EMAILS.length ? ADMIN_EMAILS.join(", ") : "все из users.json"}`
+);
 const { isSecureRequest } = require("./auth");
 
 const authRoutes = require("./routes/auth.routes");
@@ -21,6 +32,7 @@ const pricelistRoutes = require("./routes/pricelist.routes");
 const auditRoutes = require("./routes/audit.routes");
 const translateRoutes = require("./routes/translate.routes");
 const publishRoutes = require("./routes/publish.routes");
+const securityRoutes = require("./routes/security.routes");
 const { checkGitIdentity } = require("./git");
 const { startUsersMonitor } = require("./usersMonitor");
 
@@ -96,6 +108,7 @@ app.use("/api/pricelist", pricelistRoutes);
 app.use("/api/audit", auditRoutes);
 app.use("/api/translate-draft", translateRoutes);
 app.use("/api/publish", publishRoutes);
+app.use("/api/security", securityRoutes);
 
 // JSON 404 for unmatched /api/* routes must come before the static/SPA
 // fallback below, so unknown API calls never resolve to index.html.

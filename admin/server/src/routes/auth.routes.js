@@ -2,7 +2,16 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { findByEmail, normEmail, bumpSessionVersion, whyDisallowed } = require("../users");
+const {
+  loadUsers,
+  saveUsers,
+  findByEmail,
+  normEmail,
+  bumpSessionVersion,
+  sessionVersionOf,
+  whyDisallowed,
+  passwordProblem,
+} = require("../users");
 const { issueToken, requireAuth, userFromRequest, cookieOptions, COOKIE_NAME } = require("../auth");
 const { retryAfter, recordFailure, recordSuccess, logAuth } = require("../loginGuard");
 
@@ -62,6 +71,51 @@ router.post("/logout", (req, res) => {
     logAuth("logout", req, normEmail(user.email), { userId: user.id });
   }
   res.clearCookie(COOKIE_NAME, cookieOptions(req));
+  res.json({ ok: true });
+});
+
+// POST /api/auth/password { currentPassword, newPassword }
+// Changes the logged-in admin's password and ends all their other sessions
+// (every other device/token is revoked); this browser gets a fresh session.
+router.post("/password", requireAuth, async (req, res) => {
+  const { currentPassword, newPassword } = req.body || {};
+  const users = loadUsers();
+  const user = users.find((u) => u.id === req.user.sub);
+  if (!user) return res.status(401).json({ error: "Требуется вход в систему." });
+
+  const email = normEmail(user.email);
+  const wait = retryAfter(req.ip, email);
+  if (wait > 0) {
+    res.set("Retry-After", String(wait));
+    return res.status(429).json({ error: "Слишком много неудачных попыток. Повторите позже." });
+  }
+  const ok =
+    typeof currentPassword === "string" &&
+    currentPassword.length <= 256 &&
+    (await bcrypt.compare(currentPassword, user.passwordHash));
+  if (!ok) {
+    recordFailure(req.ip, email);
+    logAuth("password_change_failed", req, email, { userId: user.id });
+    return res.status(400).json({ error: "Текущий пароль неверен." });
+  }
+  const problem = passwordProblem(newPassword);
+  if (problem) return res.status(400).json({ error: "Новый " + problem });
+  if (newPassword === currentPassword) {
+    return res.status(400).json({ error: "Новый пароль совпадает с текущим." });
+  }
+
+  user.passwordHash = await bcrypt.hash(newPassword, 12);
+  user.sessionVersion = sessionVersionOf(user) + 1;
+  user.passwordChangedAt = new Date().toISOString();
+  saveUsers(users);
+  logAuth("password_changed", req, email, { userId: user.id });
+
+  const token = issueToken(user);
+  const { exp } = jwt.decode(token);
+  res.cookie(COOKIE_NAME, token, {
+    ...cookieOptions(req),
+    maxAge: Math.max(0, exp * 1000 - Date.now()),
+  });
   res.json({ ok: true });
 });
 

@@ -12,7 +12,6 @@
 // backup next to users.json (users.json.bak-<время>, owner-only, gitignored).
 // Changes apply to the running server immediately: every request re-reads
 // users.json, so removed accounts and revoked sessions are rejected at once.
-const fs = require("fs");
 const bcrypt = require("bcrypt");
 const {
   loadUsers,
@@ -20,6 +19,7 @@ const {
   normEmail,
   sessionVersionOf,
   whyDisallowed,
+  backupUsers,
   USERS_PATH,
 } = require("../src/users");
 const { ask, createRl, passwordProblem } = require("./prompt");
@@ -32,19 +32,6 @@ const [cmd, emailArg] = args.filter((a) => !a.startsWith("--"));
 function fail(msg) {
   console.error("Ошибка: " + msg);
   process.exit(1);
-}
-
-function backup() {
-  if (!fs.existsSync(USERS_PATH)) return null;
-  const stamp = new Date().toISOString().replace(/[:.]/g, "-");
-  const dest = `${USERS_PATH}.bak-${stamp}`;
-  fs.copyFileSync(USERS_PATH, dest);
-  try {
-    fs.chmodSync(dest, 0o600);
-  } catch {
-    /* best effort */
-  }
-  return dest;
 }
 
 function fmt(u) {
@@ -90,7 +77,7 @@ async function main() {
       removed.forEach((u) => console.log("  - " + fmt(u)));
       console.log("Останется:\n  + " + fmt(keep));
       if (!(await confirm(`Удалить ${removed.length} аккаунт(ов)?`))) return console.log("Отменено.");
-      const bak = backup();
+      const bak = backupUsers();
       saveUsers([keep]);
       console.log(`Готово. Удалено: ${removed.length}. Резервная копия: ${bak}`);
       console.log("Сессии удалённых аккаунтов уже недействительны.");
@@ -101,7 +88,7 @@ async function main() {
       const user = requireUser(users, emailArg);
       console.log("Будет удалён:\n  - " + fmt(user));
       if (!(await confirm("Удалить аккаунт?"))) return console.log("Отменено.");
-      const bak = backup();
+      const bak = backupUsers();
       saveUsers(users.filter((u) => u !== user));
       console.log(`Готово. Резервная копия: ${bak}`);
       return;
@@ -120,7 +107,7 @@ async function main() {
       user.passwordHash = await bcrypt.hash(p1, 12);
       user.sessionVersion = sessionVersionOf(user) + 1;
       user.passwordChangedAt = new Date().toISOString();
-      backup();
+      backupUsers();
       saveUsers(users);
       console.log(`Пароль ${user.email} изменён. Все его сессии завершены.`);
       return;
