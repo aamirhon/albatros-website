@@ -13,6 +13,7 @@ import PriceListPage from "./pages/PriceListPage.jsx";
 import EventsList from "./pages/EventsList.jsx";
 import EventEdit from "./pages/EventEdit.jsx";
 import AuditLog from "./pages/AuditLog.jsx";
+import SecurityPage from "./pages/SecurityPage.jsx";
 import PublishBar from "./components/PublishBar.jsx";
 
 function RequireAuth({ children }) {
@@ -35,6 +36,7 @@ const NAV = [
   { to: "/events", label: "Мероприятия" },
   { to: "/pricelist", label: "Прайс-лист" },
   { to: "/audit", label: "История" },
+  { to: "/security", label: "Безопасность" },
 ];
 
 function Shell({ children }) {
@@ -108,6 +110,7 @@ export default function App() {
       <Route path="/events/new" element={guard(<EventEdit mode="new" />)} />
       <Route path="/events/:id" element={guard(<EventEdit mode="edit" />)} />
       <Route path="/audit" element={guard(<AuditLog />)} />
+      <Route path="/security" element={guard(<SecurityPage />)} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

@@ -1,40 +1,20 @@
 "use strict";
 // CLI: create an admin user (bcrypt-hashed) in the gitignored users.json.
-// Usage (interactive):        npm run adduser
-// Usage (args):               npm run adduser -- "Said" said@albatros.uz "mypassword"
-const readline = require("readline");
+// Usage (interactive, recommended): npm run adduser
+// Usage (args):                     npm run adduser -- "Said" said@albatros.uz "mypassword"
+// Passing the password as an argument leaves it in shell history — prefer the
+// interactive prompt.
 const crypto = require("crypto");
 const bcrypt = require("bcrypt");
-const { loadUsers, saveUsers, USERS_PATH } = require("../src/users");
-
-function ask(rl, question, { silent = false } = {}) {
-  return new Promise((resolve) => {
-    if (!silent) return rl.question(question, (a) => resolve(a.trim()));
-    // Masked input for the password.
-    process.stdout.write(question);
-    const stdin = process.stdin;
-    const onData = (char) => {
-      const s = char.toString("utf8");
-      if (s === "\n" || s === "\r" || s === "") {
-        stdin.removeListener("data", onData);
-      }
-    };
-    stdin.on("data", onData);
-    rl._writeToOutput = () => process.stdout.write("*");
-    rl.question("", (a) => {
-      rl._writeToOutput = (str) => process.stdout.write(str);
-      process.stdout.write("\n");
-      resolve(a.trim());
-    });
-  });
-}
+const { loadUsers, saveUsers, normEmail, isValidEmail, USERS_PATH } = require("../src/users");
+const { ask, createRl, passwordProblem } = require("./prompt");
 
 async function main() {
   const [argName, argEmail, argPassword] = process.argv.slice(2);
-  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+  const rl = createRl();
 
   const name = argName || (await ask(rl, "Имя: "));
-  const email = argEmail || (await ask(rl, "Email: "));
+  const email = normEmail(argEmail || (await ask(rl, "Email: ")));
   const password = argPassword || (await ask(rl, "Пароль: ", { silent: true }));
   rl.close();
 
@@ -42,13 +22,21 @@ async function main() {
     console.error("Ошибка: имя, email и пароль обязательны.");
     process.exit(1);
   }
-  if (password.length < 6) {
-    console.error("Ошибка: пароль должен быть не короче 6 символов.");
+  if (!isValidEmail(email)) {
+    console.error(`Ошибка: "${email}" — некорректный email.`);
     process.exit(1);
+  }
+  const problem = passwordProblem(password);
+  if (problem) {
+    console.error("Ошибка: " + problem);
+    process.exit(1);
+  }
+  if (argPassword) {
+    console.warn("Внимание: пароль передан аргументом и остался в истории команд shell.");
   }
 
   const users = loadUsers();
-  if (users.some((u) => u.email.toLowerCase() === email.toLowerCase())) {
+  if (users.some((u) => normEmail(u.email) === email)) {
     console.error(`Ошибка: пользователь с email ${email} уже существует.`);
     process.exit(1);
   }
@@ -61,6 +49,7 @@ async function main() {
     passwordHash,
     role: "admin",
     createdAt: new Date().toISOString(),
+    sessionVersion: 0,
   });
   saveUsers(users);
 

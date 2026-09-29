@@ -69,6 +69,15 @@ export const api = {
     return request("/pricelist", { method: "POST", body: fd });
   },
 
+  // security page
+  security: () => request("/security"),
+  pruneBlockedUsers: () => request("/security/prune", { method: "POST" }),
+  changePassword: (currentPassword, newPassword) =>
+    request("/auth/password", {
+      method: "POST",
+      body: JSON.stringify({ currentPassword, newPassword }),
+    }),
+
   // publish (catch up any commits that piled up without going out)
   publishStatus: () => request("/publish/status"),
   publish: () => request("/publish", { method: "POST" }),
