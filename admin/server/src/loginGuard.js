@@ -57,16 +57,8 @@ setInterval(() => {
 // owner-only permissions). Useful to see who logged in, when and from where.
 const LOG_PATH = path.join(__dirname, "..", "auth.log");
 
-function logAuth(event, req, email, extra = {}) {
-  const line = {
-    time: new Date().toISOString(),
-    event,
-    email,
-    ip: req.ip,
-    ua: String(req.headers["user-agent"] || "").slice(0, 200),
-    ...extra,
-  };
-  const text = JSON.stringify(line);
+function logEvent(event, data = {}) {
+  const text = JSON.stringify({ time: new Date().toISOString(), event, ...data });
   console.log(`[auth] ${text}`);
   try {
     fs.appendFileSync(LOG_PATH, text + "\n", { encoding: "utf8", mode: 0o600 });
@@ -75,4 +67,13 @@ function logAuth(event, req, email, extra = {}) {
   }
 }
 
-module.exports = { retryAfter, recordFailure, recordSuccess, logAuth };
+function logAuth(event, req, email, extra = {}) {
+  logEvent(event, {
+    email,
+    ip: req.ip,
+    ua: String(req.headers["user-agent"] || "").slice(0, 200),
+    ...extra,
+  });
+}
+
+module.exports = { retryAfter, recordFailure, recordSuccess, logAuth, logEvent };

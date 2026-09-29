@@ -1,7 +1,7 @@
 "use strict";
 const fs = require("fs");
 const path = require("path");
-const { USERS_PATH } = require("./config");
+const { USERS_PATH, ADMIN_EMAILS } = require("./config");
 
 // Users are stored in a gitignored JSON file so password hashes never enter git.
 // Shape: [{ id, name, email, passwordHash, role, createdAt, sessionVersion }]
@@ -41,6 +41,26 @@ function normEmail(email) {
   return String(email || "").trim().toLowerCase();
 }
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function isValidEmail(email) {
+  return EMAIL_RE.test(normEmail(email));
+}
+
+// Why a stored account may not be used, or null if it may. Accounts that are
+// not well-formed (e.g. an "email" without @) or not on the ADMIN_EMAILS
+// allow-list are refused at login and on every request.
+function whyDisallowed(user) {
+  if (!user || typeof user.id !== "string" || typeof user.passwordHash !== "string") {
+    return "повреждённая запись";
+  }
+  if (!isValidEmail(user.email)) return "email некорректен";
+  if (ADMIN_EMAILS.length && !ADMIN_EMAILS.includes(normEmail(user.email))) {
+    return "нет в ADMIN_EMAILS";
+  }
+  return null;
+}
+
 function findByEmail(email) {
   const target = normEmail(email);
   return loadUsers().find((u) => normEmail(u.email) === target);
@@ -69,6 +89,8 @@ module.exports = {
   loadUsers,
   saveUsers,
   normEmail,
+  isValidEmail,
+  whyDisallowed,
   findByEmail,
   findById,
   sessionVersionOf,

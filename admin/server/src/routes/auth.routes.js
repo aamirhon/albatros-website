@@ -2,7 +2,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { findByEmail, normEmail, bumpSessionVersion } = require("../users");
+const { findByEmail, normEmail, bumpSessionVersion, whyDisallowed } = require("../users");
 const { issueToken, requireAuth, userFromRequest, cookieOptions, COOKIE_NAME } = require("../auth");
 const { retryAfter, recordFailure, recordSuccess, logAuth } = require("../loginGuard");
 
@@ -34,9 +34,11 @@ router.post("/login", async (req, res) => {
 
   const user = findByEmail(target);
   const ok = await bcrypt.compare(password, user ? user.passwordHash : DUMMY_HASH);
-  if (!user || !ok) {
+  const disallowed = user && ok ? whyDisallowed(user) : null;
+  if (!user || !ok || disallowed) {
     recordFailure(req.ip, target);
-    logAuth("login_failed", req, target, { reason: user ? "bad_password" : "unknown_user" });
+    const reason = !user ? "unknown_user" : !ok ? "bad_password" : `disallowed: ${disallowed}`;
+    logAuth("login_failed", req, target, { reason });
     return res.status(401).json({ error: "Неверный email или пароль." });
   }
 

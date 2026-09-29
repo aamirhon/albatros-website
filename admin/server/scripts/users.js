@@ -19,6 +19,7 @@ const {
   saveUsers,
   normEmail,
   sessionVersionOf,
+  whyDisallowed,
   USERS_PATH,
 } = require("../src/users");
 const { ask, createRl, passwordProblem } = require("./prompt");
@@ -47,7 +48,9 @@ function backup() {
 }
 
 function fmt(u) {
-  return `${u.email}  —  ${u.name}  (создан ${u.createdAt || "?"}, id ${u.id})`;
+  const why = whyDisallowed(u);
+  const flag = why ? `  ⚠ ЗАБЛОКИРОВАН: ${why}` : "";
+  return `${u.email}  —  ${u.name}  (создан ${u.createdAt || "?"}, id ${u.id})${flag}`;
 }
 
 async function confirm(question) {

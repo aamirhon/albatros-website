@@ -1,7 +1,7 @@
 "use strict";
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET, JWT_EXPIRES_IN, COOKIE_SECURE } = require("./config");
-const { findById, sessionVersionOf } = require("./users");
+const { findById, sessionVersionOf, whyDisallowed } = require("./users");
 
 const COOKIE_NAME = "alba_admin_token";
 
@@ -39,6 +39,7 @@ function userFromRequest(req) {
   if (typeof payload.sub !== "string" || !Number.isInteger(payload.sv)) return null;
   const user = findById(payload.sub);
   if (!user || sessionVersionOf(user) !== payload.sv) return null;
+  if (whyDisallowed(user)) return null;
   return user;
 }
 

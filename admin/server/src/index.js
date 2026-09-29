@@ -22,6 +22,7 @@ const auditRoutes = require("./routes/audit.routes");
 const translateRoutes = require("./routes/translate.routes");
 const publishRoutes = require("./routes/publish.routes");
 const { checkGitIdentity } = require("./git");
+const { startUsersMonitor } = require("./usersMonitor");
 
 const app = express();
 app.set("trust proxy", TRUST_PROXY);
@@ -123,3 +124,4 @@ app.listen(PORT, () => {
 });
 
 checkGitIdentity();
+startUsersMonitor();

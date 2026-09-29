@@ -6,7 +6,7 @@
 // interactive prompt.
 const crypto = require("crypto");
 const bcrypt = require("bcrypt");
-const { loadUsers, saveUsers, normEmail, USERS_PATH } = require("../src/users");
+const { loadUsers, saveUsers, normEmail, isValidEmail, USERS_PATH } = require("../src/users");
 const { ask, createRl, passwordProblem } = require("./prompt");
 
 async function main() {
@@ -20,6 +20,10 @@ async function main() {
 
   if (!name || !email || !password) {
     console.error("Ошибка: имя, email и пароль обязательны.");
+    process.exit(1);
+  }
+  if (!isValidEmail(email)) {
+    console.error(`Ошибка: "${email}" — некорректный email.`);
     process.exit(1);
   }
   const problem = passwordProblem(password);

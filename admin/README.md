@@ -95,6 +95,12 @@ npm run users -- revoke admin@albatros.uz    # завершить все сес�
   пишутся в `admin/server/auth.log` (в .gitignore).
 - Cookie сессии: `HttpOnly`, `SameSite=Strict`, `Secure` при работе по HTTPS.
   Заголовки безопасности: CSP, HSTS (по HTTPS), X-Frame-Options и др.
+- `ADMIN_EMAILS` в `.env` (например `ADMIN_EMAILS=admin@albatros.uz`) —
+  белый список: входить могут только эти аккаунты, даже если в `users.json`
+  окажутся другие. Записи без корректного email не пускаются никогда.
+- Аккаунты создаются только правкой `users.json` на сервере (HTTP-регистрации
+  нет). Список аккаунтов пишется в `auth.log` при старте, а любое изменение
+  файла — с перечнем добавленных/удалённых email (`users_changed`).
 - Если панель стоит за reverse proxy не на этой же машине, задайте
   `TRUST_PROXY` в `.env` (см. `.env.example`), иначе лимит попыток будет
   считать всех пользователей одним IP.

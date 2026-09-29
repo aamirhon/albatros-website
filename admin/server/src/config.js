@@ -78,6 +78,12 @@ module.exports = {
   // "auto" (default): Secure cookie whenever the request came over HTTPS
   // (directly or via a proxy's X-Forwarded-Proto). "true"/"false" force it.
   COOKIE_SECURE: (process.env.COOKIE_SECURE || "auto").trim(),
+  // Optional allow-list (comma-separated). When set, only these emails can log
+  // in or keep a session, even if other entries end up in users.json.
+  ADMIN_EMAILS: (process.env.ADMIN_EMAILS || "")
+    .split(",")
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean),
   // Off by default so local development stays commit-only, as before.
   AUTO_PUSH: process.env.AUTO_PUSH === "true",
   DEPLOY_BRANCH: process.env.DEPLOY_BRANCH || "deploy-website",
