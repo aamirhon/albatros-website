@@ -1231,5 +1231,20 @@
     "images": [
       "/images/events/e2026-6.jpg"
     ]
+  },
+  {
+    "id": "e2026-6",
+    "year": "2026",
+    "title": "Международный симпозиум SNIBE Day в Ташкенте",
+    "date": "Октябрь 2026",
+    "description": "4 октября в Ташкенте прошёл Международный симпозиум по лабораторной медицине SNIBE Day, организованный компанией SNIBE Diagnostic совместно с IFCC и Albatros Health Care. Международные и местные эксперты поделились опытом в области автоматизации лабораторий, современной диагностики и повышения качества исследований. Одним из ключевых участников симпозиума стала президент IFCC профессор Томрис Озбен, выступившая с докладом об автоматизации медицинских лабораторий. Мероприятие собрало специалистов лабораторной диагностики со всей страны и стало площадкой для профессионального обмена опытом и укрепления международного сотрудничества в сфере лабораторной медицины.",
+    "titleUz": "Toshkentda xalqaro SNIBE Day simpoziumi",
+    "descriptionUz": "4-oktabr kuni Toshkentda SNIBE Diagnostic, IFCC va Albatros Health Care hamkorligida tashkil etilgan xalqaro SNIBE Day laboratoriya tibbiyoti simpoziumi boʻlib oʻtdi. Xalqaro va mahalliy ekspertlar laboratoriyalarni avtomatlashtirish, zamonaviy diagnostika va tadqiqotlar sifatini oshirish boʻyicha oʻz tajribalarini boʻlishishdi. Simpoziumning asosiy ishtirokchilaridan biri — IFCC prezidenti, professor Tomris Ozben boʻlib, u tibbiy laboratoriyalarni avtomatlashtirish mavzusida maʼruza qildi. Tadbir mamlakatning turli hududlaridan kelgan laboratoriya diagnostikasi mutaxassislarini bir joyga jamladi va tajriba almashish hamda xalqaro hamkorlikni mustahkamlash uchun muhim maydonga aylandi.",
+    "titleEn": "International SNIBE Day Symposium in Tashkent",
+    "descriptionEn": "On October 4, the international SNIBE Day symposium on laboratory medicine took place in Tashkent, organized jointly by SNIBE Diagnostic, IFCC, and Albatros Health Care. International and local experts shared their experience in laboratory automation, modern diagnostics, and research quality. One of the symposium's key participants was IFCC President Professor Tomris Ozben, who delivered a lecture on the automation of medical laboratories. The event brought together laboratory diagnostics specialists from across the country and became an important platform for professional exchange and strengthening international cooperation in laboratory medicine.",
+    "type": "symposium",
+    "images": [
+      "/images/events/e2026-7.jpg"
+    ]
   }
 ]
