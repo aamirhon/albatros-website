@@ -237,6 +237,16 @@
     "contact": {
       "title": "Aloqa",
       "description": "Albatros Health Care bilan bogʻlaning: Toshkent sh., Chiltoʻgʻon 4-tor koʻch., 24, tel. +998 77 756 42 36, +998 99 792 79 00, info@albatros.uz. Laboratoriya uskunalarini yetkazib berish."
+    },
+    "links": {
+      "title": "Aloqa va havolalar",
+      "description": "Albatros Health Care barcha aloqa maʼlumotlari va havolalari bir joyda: telefonlar, Telegram, ijtimoiy tarmoqlar, sayt."
     }
+  },
+  "links": {
+    "subtitle": "Barcha aloqa maʼlumotlarimiz va manbalarimiz bir joyda",
+    "contactHeading": "Biz bilan bogʻlaning",
+    "socialHeading": "Ijtimoiy tarmoqlarda",
+    "website": "Saytga oʻtish"
   }
 }

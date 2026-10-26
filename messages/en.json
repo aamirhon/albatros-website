@@ -239,6 +239,16 @@
     "contact": {
       "title": "Contact",
       "description": "Contact Albatros Health Care: 24 Chiltugan 4th Passage, Tashkent, tel. +998 77 756 42 36, +998 99 792 79 00, info@albatros.uz. Turnkey laboratory equipment supply."
+    },
+    "links": {
+      "title": "Contacts and links",
+      "description": "All Albatros Health Care contacts and links in one place: phones, Telegram, social networks, website."
     }
+  },
+  "links": {
+    "subtitle": "All our contacts and resources in one place",
+    "contactHeading": "Get in touch",
+    "socialHeading": "Follow us",
+    "website": "Visit our website"
   }
 }
