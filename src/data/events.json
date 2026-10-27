@@ -1246,5 +1246,20 @@
     "images": [
       "/images/events/e2026-7.jpg"
     ]
+  },
+  {
+    "id": "e2026-7",
+    "year": "2026",
+    "title": "Международный конгресс «Во имя детства: 60 лет заботы, знаний и открытий»",
+    "date": "Октябрь 2026",
+    "description": "В Ташкенте, в AZIMUT Grand Hotel Tashkent, прошёл Международный конгресс «Во имя детства: 60 лет заботы, знаний и открытий».\nЗа два дня мероприятие объединило специалистов в области педиатрии, экспертов и представителей профессионального сообщества.\nAlbatros Health Care приняла участие в конгрессе в качестве одного из спонсоров. На стенде компании гости познакомились с нашими решениями, задали вопросы специалистам и обсудили современные технологии в медицинской и лабораторной диагностике.\nБлагодарим всех, кто посетил наш стенд и принял участие в профессиональном общении.",
+    "titleUz": "«Bolalik nomidan: 60 yil gʻamxoʻrlik, bilim va kashfiyotlar» xalqaro kongressi",
+    "descriptionUz": "Toshkentda, AZIMUT Grand Hotel Tashkent mehmonxonasida «Bolalik nomidan: 60 yil gʻamxoʻrlik, bilim va kashfiyotlar» xalqaro kongressi boʻlib oʻtdi.\nIkki kun davomida tadbir pediatriya sohasidagi mutaxassislar, ekspertlar va tibbiy professional hamjamiyat vakillarini birlashtirdi.\nAlbatros Health Care kongressda homiylardan biri sifatida ishtirok etdi. Kompaniya stendida mehmonlar yechimlarimiz bilan tanishdi, mutaxassislarimizga savollar berdi hamda zamonaviy tibbiy va laboratoriya diagnostikasi texnologiyalarini muhokama qildi.\nStendimizga tashrif buyurgan va professional muloqotda ishtirok etgan barcha mehmonlarga minnatdorchilik bildiramiz.",
+    "titleEn": "International Congress “In the Name of Childhood: 60 Years of Care, Knowledge and Discoveries”",
+    "descriptionEn": "The International Congress “In the Name of Childhood: 60 Years of Care, Knowledge and Discoveries” took place at the AZIMUT Grand Hotel Tashkent.\nOver two days, the event brought together pediatric specialists, experts and members of the professional community.\nAlbatros Health Care took part as one of the sponsors. At the company’s stand, guests learned about our solutions, asked our specialists questions and discussed modern technologies in medical and laboratory diagnostics.\nWe thank everyone who visited our stand and took part in the professional exchange.",
+    "type": "congress",
+    "images": [
+      "/images/events/e2026-9.jpg"
+    ]
   }
 ]
