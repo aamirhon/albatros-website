@@ -123,7 +123,10 @@ export default function ParticleBackground({
     };
 
     const build = () => {
-      const n = Math.max(40, Math.round(320 * density * quality));
+      // Scale the dot count with screen area below the desktop breakpoint so a phone
+      // is not several times denser per pixel than a laptop. >=1024px is unchanged.
+      const areaScale = W >= 1024 ? 1 : Math.min(1, Math.max(0.4, (W * H) / (1440 * 900)));
+      const n = Math.max(40, Math.round(320 * density * quality * areaScale));
       const cols = Math.ceil(n / 2);
       const idle = ph >= TOTAL;
       ps = [];
