@@ -65,12 +65,13 @@ type Btn = {
   aria: string;
   plainCase?: boolean;
   span?: boolean;
-  number?: string;
+  second?: string;
+  desktopLabel?: string;
   track: string;
   type: string;
 };
 
-function Button({ icon: Icon, block, label, href, aria, plainCase, span, number, track, type }: Btn) {
+function Button({ icon: Icon, block, label, href, aria, plainCase, span, second, desktopLabel, track, type }: Btn) {
   const external = href.startsWith("https://");
   return (
     <a
@@ -79,7 +80,7 @@ function Button({ icon: Icon, block, label, href, aria, plainCase, span, number,
       data-track={track}
       data-track-type={type}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={`flex min-h-[clamp(40px,6.4vh,60px)] overflow-hidden lg:min-h-[58px] min-[1920px]:min-h-20 rounded-[14px] border border-bg-border bg-bg-card shadow-[0_1px_2px_rgba(16,40,90,0.04)] transition-colors hover:border-brand-red focus-visible:border-brand-red ${
+      className={`flex min-h-[clamp(40px,6.4vh,60px)] overflow-hidden lg:min-h-[72px] min-[1920px]:min-h-[94px] rounded-[14px] border border-bg-border bg-bg-card shadow-[0_1px_2px_rgba(16,40,90,0.04)] transition-colors hover:border-brand-red focus-visible:border-brand-red ${
         span ? "col-span-2 max-[389px]:col-span-1" : ""
       }`}
     >
@@ -91,13 +92,20 @@ function Button({ icon: Icon, block, label, href, aria, plainCase, span, number,
           plainCase ? "" : "uppercase"
         }`}
       >
-        {label}
-        {number && (
+        {desktopLabel ? (
+          <>
+            <span className="lg:hidden">{label}</span>
+            <span className="hidden uppercase lg:block">{desktopLabel}</span>
+          </>
+        ) : (
+          label
+        )}
+        {second && (
           <span
             aria-hidden="true"
-            className="hidden font-normal normal-case leading-none tracking-normal tabular-nums text-text-primary lg:mt-0.5 lg:block lg:text-[15px] min-[1920px]:text-[18px]"
+            className="hidden normal-case tabular-nums text-text-primary lg:mt-1.5 lg:block min-[1920px]:mt-2"
           >
-            {number}
+            {second}
           </span>
         )}
       </span>
@@ -114,14 +122,14 @@ export default function LinksPage() {
     label: t(key),
     href: `tel:${tel}`,
     aria: `${t(key)}, ${shown}`,
-    number: shown,
+    second: shown,
     track,
     type: "phone",
   });
 
   const contacts: Btn[] = [
     phone(Phone, "officeTashkent", "+998777564236", "+998 77 756 42 36", "Офис в Ташкенте"),
-    { icon: Mail, block: TEAL, label: "info@albatros.uz", href: "mailto:info@albatros.uz", aria: "info@albatros.uz", plainCase: true, track: "Email", type: "email" },
+    { icon: Mail, block: TEAL, label: "info@albatros.uz", href: "mailto:info@albatros.uz", aria: "info@albatros.uz", plainCase: true, second: "info@albatros.uz", desktopLabel: t("email"), track: "Email", type: "email" },
     phone(Phone, "officeSamarkand", "+998771351115", "+998 77 135 11 15", "Офис в Самарканде"),
     phone(Phone, "officeNamangan", "+998959402000", "+998 95 940 20 00", "Офис в Намангане"),
   ];
@@ -129,7 +137,7 @@ export default function LinksPage() {
   const services: Btn[] = [
     phone(Phone, "sales", "+998997927900", "+998 99 792 79 00", "Отдел продаж оборудования"),
     phone(Phone, "techService", "+998772681122", "+998 77 268 11 22", "Техническое обслуживание"),
-    { icon: Send, block: TG_BLUE, label: t("reagents"), href: "https://t.me/albazakaz", aria: t("reagents"), span: true, track: "Заказ реагентов", type: "telegram" },
+    { icon: Send, block: TG_BLUE, label: t("reagents"), href: "https://t.me/albazakaz", aria: t("reagents"), span: true, second: "@albazakaz", track: "Заказ реагентов", type: "telegram" },
   ];
 
   return (
