@@ -25,9 +25,9 @@ export async function generateMetadata({
 }
 
 const tileClass =
-  "flex flex-col items-center rounded-2xl px-1 py-[clamp(2px,0.6vh,8px)] text-center transition-colors hover:bg-[#EEF3FA] focus-visible:bg-[#EEF3FA]";
-const iconBox = "flex h-[clamp(28px,5.6vh,56px)] items-center justify-center";
-const tileLabel = "mt-1.5 text-[10.5px] font-normal uppercase tracking-wide text-text-muted";
+  "flex flex-col items-center justify-center gap-1.5 rounded-[14px] border border-bg-border bg-bg-card px-2 py-[clamp(6px,1vh,12px)] text-center shadow-[0_1px_2px_rgba(16,40,90,0.04)] transition-colors hover:border-brand-red focus-visible:border-brand-red";
+const iconBox = "flex h-[clamp(32px,5vh,40px)] items-center justify-center";
+const tileLabel = "text-[10.5px] font-normal uppercase tracking-wide text-text-muted";
 const headingClass = "font-display text-[13px] font-bold uppercase tracking-wide text-text-primary";
 const headingGap = "mb-[clamp(6px,1.4vh,14px)] mt-[clamp(10px,2.8vh,32px)]";
 const gridGap = "gap-[clamp(6px,1vh,10px)]";
@@ -35,10 +35,10 @@ const gridGap = "gap-[clamp(6px,1vh,10px)]";
 function Logo({ src, wide }: { src: string; wide?: boolean }) {
   return wide ? (
     <span className={`${iconBox} w-full`}>
-      <Image src={src} alt="" width={1990} height={563} unoptimized className="h-full w-auto max-w-full object-contain" />
+      <Image src={src} alt="" width={1990} height={563} unoptimized className="h-full w-full object-contain" />
     </span>
   ) : (
-    <span className={`${iconBox} w-[clamp(28px,5.6vh,56px)]`}>
+    <span className={`${iconBox} w-[clamp(32px,5vh,40px)]`}>
       <Image src={src} alt="" width={56} height={56} unoptimized className="h-full w-full object-contain" />
     </span>
   );
@@ -120,7 +120,7 @@ export default function LinksPage() {
       <div className="container-x">
         <div className="mx-auto w-full max-w-xl">
           <h2 className={`${headingClass} mb-[clamp(6px,1.4vh,14px)]`}>{t("socialHeading")}</h2>
-          <div className="grid grid-cols-2 items-start gap-x-2 gap-y-[clamp(4px,1vh,18px)] [@media(max-height:700px)]:grid-cols-3">
+          <div className={`grid grid-cols-2 ${gridGap}`}>
             <Link href="/" className={tileClass}>
               <Logo src="/images/social/site.svg" wide />
               <span className={tileLabel}>{t("site")}</span>
