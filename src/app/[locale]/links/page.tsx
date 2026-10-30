@@ -25,12 +25,12 @@ export async function generateMetadata({
 }
 
 const tileClass =
-  "flex flex-col items-center justify-center gap-1.5 rounded-[14px] border border-bg-border bg-bg-card px-2 py-[clamp(6px,1vh,12px)] text-center shadow-[0_1px_2px_rgba(16,40,90,0.04)] transition-colors hover:border-brand-red focus-visible:border-brand-red";
-const iconBox = "flex h-[clamp(32px,5vh,40px)] items-center justify-center";
-const tileLabel = "text-[10.5px] font-normal uppercase tracking-wide text-text-muted";
-const headingClass = "font-display text-[13px] font-bold uppercase tracking-wide text-text-primary";
-const headingGap = "mb-[clamp(6px,1.4vh,14px)] mt-[clamp(10px,2.8vh,32px)]";
-const gridGap = "gap-[clamp(6px,1vh,10px)]";
+  "flex flex-col items-center justify-center gap-1.5 rounded-[14px] border border-bg-border bg-bg-card px-2 py-[clamp(6px,1vh,12px)] text-center lg:gap-2 lg:px-3 lg:py-[14px] min-[1920px]:gap-3 min-[1920px]:px-4 min-[1920px]:py-[26px] shadow-[0_1px_2px_rgba(16,40,90,0.04)] transition-colors hover:border-brand-red focus-visible:border-brand-red";
+const iconBox = "flex h-[clamp(32px,5vh,40px)] items-center justify-center lg:h-12 min-[1920px]:h-[72px]";
+const tileLabel = "text-[10.5px] font-normal uppercase tracking-wide text-text-muted lg:text-[13px] min-[1920px]:text-base";
+const headingClass = "font-display text-[13px] font-bold uppercase tracking-wide text-text-primary lg:text-[17px] min-[1920px]:text-2xl";
+const headingGap = "mb-[clamp(6px,1.4vh,14px)] mt-[clamp(10px,2.8vh,32px)] lg:mb-3 lg:mt-6 min-[1920px]:mb-[18px] min-[1920px]:mt-9";
+const gridGap = "gap-[clamp(6px,1vh,10px)] lg:gap-3 min-[1920px]:gap-5";
 
 function Logo({ src, wide }: { src: string; wide?: boolean }) {
   return wide ? (
@@ -38,7 +38,7 @@ function Logo({ src, wide }: { src: string; wide?: boolean }) {
       <Image src={src} alt="" width={1990} height={563} unoptimized className="h-full w-full object-contain" />
     </span>
   ) : (
-    <span className={`${iconBox} w-[clamp(32px,5vh,40px)]`}>
+    <span className={`${iconBox} w-[clamp(32px,5vh,40px)] lg:w-12 min-[1920px]:w-[72px]`}>
       <Image src={src} alt="" width={56} height={56} unoptimized className="h-full w-full object-contain" />
     </span>
   );
@@ -73,15 +73,15 @@ function Button({ icon: Icon, block, label, href, aria, plainCase, span }: Btn) 
       href={href}
       aria-label={aria}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={`flex min-h-[clamp(40px,6.4vh,60px)] overflow-hidden rounded-[14px] border border-bg-border bg-bg-card shadow-[0_1px_2px_rgba(16,40,90,0.04)] transition-colors hover:border-brand-red focus-visible:border-brand-red ${
+      className={`flex min-h-[clamp(40px,6.4vh,60px)] overflow-hidden lg:min-h-[58px] min-[1920px]:min-h-20 rounded-[14px] border border-bg-border bg-bg-card shadow-[0_1px_2px_rgba(16,40,90,0.04)] transition-colors hover:border-brand-red focus-visible:border-brand-red ${
         span ? "col-span-2 max-[389px]:col-span-1" : ""
       }`}
     >
-      <span className={`flex w-11 shrink-0 items-center justify-center ${block}`}>
-        <Icon className="h-5 w-5 text-white" />
+      <span className={`flex w-11 shrink-0 items-center justify-center lg:w-[60px] min-[1920px]:w-20 ${block}`}>
+        <Icon className="h-5 w-5 text-white lg:h-6 lg:w-6 min-[1920px]:h-[30px] min-[1920px]:w-[30px]" />
       </span>
       <span
-        className={`flex flex-1 items-center px-3 py-[clamp(6px,1vh,10px)] text-[10.5px] font-normal leading-snug tracking-wide text-text-muted ${
+        className={`flex flex-1 items-center px-3 py-[clamp(6px,1vh,10px)] text-[10.5px] font-normal leading-snug tracking-wide text-text-muted lg:px-[18px] lg:py-2.5 lg:text-[13px] min-[1920px]:px-[22px] min-[1920px]:py-3 min-[1920px]:text-base ${
           plainCase ? "" : "uppercase"
         }`}
       >
@@ -116,11 +116,11 @@ export default function LinksPage() {
   ];
 
   return (
-    <div className="pb-8 pt-[calc(4rem+clamp(10px,2vh,20px))] md:pb-12 md:pt-[calc(5rem+clamp(10px,2vh,20px))]">
+    <div className="pb-8 pt-[calc(4rem+clamp(10px,2vh,20px))] md:pb-12 md:pt-[calc(5rem+clamp(10px,2vh,20px))] lg:flex lg:pb-[clamp(10px,2vh,20px)] lg:flex-1 lg:flex-col lg:justify-center">
       <div className="container-x">
-        <div className="mx-auto w-full max-w-xl">
-          <h2 className={`${headingClass} mb-[clamp(6px,1.4vh,14px)]`}>{t("socialHeading")}</h2>
-          <div className={`grid grid-cols-2 ${gridGap}`}>
+        <div className="mx-auto w-full max-w-xl lg:max-w-[760px] min-[1920px]:max-w-[1120px]">
+          <h2 className={`${headingClass} mb-[clamp(6px,1.4vh,14px)] lg:mb-3 min-[1920px]:mb-[18px]`}>{t("socialHeading")}</h2>
+          <div className={`grid grid-cols-2 lg:grid-cols-3 ${gridGap}`}>
             <Link href="/" className={tileClass}>
               <Logo src="/images/social/site.svg" wide />
               <span className={tileLabel}>{t("site")}</span>
