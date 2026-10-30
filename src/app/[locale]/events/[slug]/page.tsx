@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { use } from "react";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarDays } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -22,10 +23,11 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string; slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const locale = params.locale as AppLocale;
-  const e = getEvent(params.slug);
+  const { locale: rawLocale, slug } = await params;
+  const locale = rawLocale as AppLocale;
+  const e = getEvent(slug);
   if (!e) return {};
   return pageMetadata({
     locale,
@@ -36,8 +38,9 @@ export async function generateMetadata({
   });
 }
 
-export default function EventDetailPage({ params }: { params: { slug: string } }) {
-  const e = getEvent(params.slug);
+export default function EventDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+  const e = getEvent(slug);
   if (!e || e.hidden) notFound();
   const locale = useLocale();
   const t = useTranslations("events");

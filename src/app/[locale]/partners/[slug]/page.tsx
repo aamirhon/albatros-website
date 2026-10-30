@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { use } from "react";
 import { notFound } from "next/navigation";
 import { ChevronRight, ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -25,11 +26,12 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string; locale: string };
+  params: Promise<{ slug: string; locale: string }>;
 }): Promise<Metadata> {
-  const brand = brands.find((b) => b.id === params.slug);
+  const { slug, locale: rawLocale } = await params;
+  const brand = brands.find((b) => b.id === slug);
   if (!brand) return { title: "404" };
-  const locale = params.locale as AppLocale;
+  const locale = rawLocale as AppLocale;
   const specialty = brandSpecialty(brand, locale);
   return pageMetadata({
     locale,
@@ -40,10 +42,10 @@ export async function generateMetadata({
   });
 }
 
-export default function PartnerDetailPage({ params }: { params: { slug: string; locale: string } }) {
-  const brand = brands.find((b) => b.id === params.slug);
+export default function PartnerDetailPage({ params }: { params: Promise<{ slug: string; locale: string }> }) {
+  const { slug, locale } = use(params);
+  const brand = brands.find((b) => b.id === slug);
   if (!brand) notFound();
-  const locale = params.locale;
   const items = products.filter((p) => p.brand === productBrandOf(brand));
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const t = useTranslations("partners");

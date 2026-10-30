@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { use } from "react";
 import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -24,11 +25,12 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string; locale: string };
+  params: Promise<{ slug: string; locale: string }>;
 }): Promise<Metadata> {
-  const product = getProduct(params.slug);
+  const { slug, locale: rawLocale } = await params;
+  const product = getProduct(slug);
   if (!product) return { title: "404" };
-  const locale = params.locale as AppLocale;
+  const locale = rawLocale as AppLocale;
   const kw = categoryKeyword(product.category, locale);
   return pageMetadata({
     locale,
@@ -39,13 +41,13 @@ export async function generateMetadata({
   });
 }
 
-export default function ProductPage({ params }: { params: { slug: string; locale: string } }) {
-  const product = getProduct(params.slug);
+export default function ProductPage({ params }: { params: Promise<{ slug: string; locale: string }> }) {
+  const { slug, locale } = use(params);
+  const product = getProduct(slug);
   if (!product || product.imageless) notFound();
   // Show every same-category sibling (the largest category has 8) and let
   // IncrementalList do the limiting, instead of silently truncating to 4.
   const related = getRelated(product, 8);
-  const locale = params.locale;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const t = useTranslations("product");
   // eslint-disable-next-line react-hooks/rules-of-hooks

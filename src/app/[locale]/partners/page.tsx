@@ -17,9 +17,9 @@ import { ContactCTA } from "@/components/home/ContactCTA";
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const locale = params.locale as AppLocale;
+  const locale = (await params).locale as AppLocale;
   const t = await getTranslations({ locale, namespace: "meta" });
   return pageMetadata({
     locale,
