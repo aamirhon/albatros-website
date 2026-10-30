@@ -64,9 +64,10 @@ type Btn = {
   aria: string;
   plainCase?: boolean;
   span?: boolean;
+  number?: string;
 };
 
-function Button({ icon: Icon, block, label, href, aria, plainCase, span }: Btn) {
+function Button({ icon: Icon, block, label, href, aria, plainCase, span, number }: Btn) {
   const external = href.startsWith("https://");
   return (
     <a
@@ -81,11 +82,19 @@ function Button({ icon: Icon, block, label, href, aria, plainCase, span }: Btn) 
         <Icon className="h-5 w-5 text-white lg:h-6 lg:w-6 min-[1920px]:h-[30px] min-[1920px]:w-[30px]" />
       </span>
       <span
-        className={`flex flex-1 items-center px-3 py-[clamp(6px,1vh,10px)] text-[10.5px] font-normal leading-snug tracking-wide text-text-muted lg:px-[18px] lg:py-2.5 lg:text-[13px] min-[1920px]:px-[22px] min-[1920px]:py-3 min-[1920px]:text-base ${
+        className={`flex flex-1 flex-col justify-center px-3 py-[clamp(6px,1vh,10px)] text-[10.5px] font-semibold leading-snug tracking-wide text-text-muted lg:px-[18px] lg:py-2.5 lg:text-[13px] min-[1920px]:px-[22px] min-[1920px]:py-3 min-[1920px]:text-base ${
           plainCase ? "" : "uppercase"
         }`}
       >
         {label}
+        {number && (
+          <span
+            aria-hidden="true"
+            className="hidden font-normal normal-case leading-none tracking-normal tabular-nums text-text-primary lg:mt-0.5 lg:block lg:text-[15px] min-[1920px]:text-[18px]"
+          >
+            {number}
+          </span>
+        )}
       </span>
     </a>
   );
@@ -100,6 +109,7 @@ export default function LinksPage() {
     label: t(key),
     href: `tel:${tel}`,
     aria: `${t(key)}, ${shown}`,
+    number: shown,
   });
 
   const contacts: Btn[] = [
