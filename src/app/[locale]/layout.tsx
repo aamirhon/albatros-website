@@ -104,7 +104,7 @@ export default async function LocaleLayout({
                 main and the footer wrapper keeps all content above it. */}
             <ParticleFieldProvider>
               <Navbar />
-              <main className="relative z-[1]">{children}</main>
+              <main className="relative z-[1] flex flex-1 flex-col">{children}</main>
               <div className="relative z-[1]">
                 <Footer />
               </div>
