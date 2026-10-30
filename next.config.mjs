@@ -5,6 +5,11 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Next 15 streams <title>/<meta>/canonical/hreflang into the <body> for ordinary
+  // user agents (only a short bot list gets them in <head>). Next 14 always put
+  // them in <head>; keep that for every client so SEO tags and link previews are
+  // delivered exactly as before the upgrade.
+  htmlLimitedBots: /.*/,
   images: {
     // Serve every image as its static file, bypassing the /_next/image runtime
     // optimizer. All images in this repo are already pre-normalized for the web
