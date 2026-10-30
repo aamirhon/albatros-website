@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { pageMetadata, type AppLocale } from "@/lib/seo";
+import { LinksClickTracker } from "./LinksClickTracker";
 
 export async function generateMetadata({
   params,
@@ -65,14 +66,18 @@ type Btn = {
   plainCase?: boolean;
   span?: boolean;
   number?: string;
+  track: string;
+  type: string;
 };
 
-function Button({ icon: Icon, block, label, href, aria, plainCase, span, number }: Btn) {
+function Button({ icon: Icon, block, label, href, aria, plainCase, span, number, track, type }: Btn) {
   const external = href.startsWith("https://");
   return (
     <a
       href={href}
       aria-label={aria}
+      data-track={track}
+      data-track-type={type}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={`flex min-h-[clamp(40px,6.4vh,60px)] overflow-hidden lg:min-h-[58px] min-[1920px]:min-h-20 rounded-[14px] border border-bg-border bg-bg-card shadow-[0_1px_2px_rgba(16,40,90,0.04)] transition-colors hover:border-brand-red focus-visible:border-brand-red ${
         span ? "col-span-2 max-[389px]:col-span-1" : ""
@@ -103,40 +108,42 @@ function Button({ icon: Icon, block, label, href, aria, plainCase, span, number 
 export default function LinksPage() {
   const t = useTranslations("links");
 
-  const phone = (icon: LucideIcon, key: string, tel: string, shown: string, block = GREEN): Btn => ({
+  const phone = (icon: LucideIcon, key: string, tel: string, shown: string, track: string, block = GREEN): Btn => ({
     icon,
     block,
     label: t(key),
     href: `tel:${tel}`,
     aria: `${t(key)}, ${shown}`,
     number: shown,
+    track,
+    type: "phone",
   });
 
   const contacts: Btn[] = [
-    phone(Phone, "officeTashkent", "+998777564236", "+998 77 756 42 36"),
-    { icon: Mail, block: TEAL, label: "info@albatros.uz", href: "mailto:info@albatros.uz", aria: "info@albatros.uz", plainCase: true },
-    phone(Phone, "officeSamarkand", "+998771351115", "+998 77 135 11 15"),
-    phone(Phone, "officeNamangan", "+998959402000", "+998 95 940 20 00"),
+    phone(Phone, "officeTashkent", "+998777564236", "+998 77 756 42 36", "Офис в Ташкенте"),
+    { icon: Mail, block: TEAL, label: "info@albatros.uz", href: "mailto:info@albatros.uz", aria: "info@albatros.uz", plainCase: true, track: "Email", type: "email" },
+    phone(Phone, "officeSamarkand", "+998771351115", "+998 77 135 11 15", "Офис в Самарканде"),
+    phone(Phone, "officeNamangan", "+998959402000", "+998 95 940 20 00", "Офис в Намангане"),
   ];
 
   const services: Btn[] = [
-    phone(Phone, "sales", "+998997927900", "+998 99 792 79 00"),
-    phone(Phone, "techService", "+998772681122", "+998 77 268 11 22"),
-    { icon: Send, block: TG_BLUE, label: t("reagents"), href: "https://t.me/albazakaz", aria: t("reagents"), span: true },
+    phone(Phone, "sales", "+998997927900", "+998 99 792 79 00", "Отдел продаж оборудования"),
+    phone(Phone, "techService", "+998772681122", "+998 77 268 11 22", "Техническое обслуживание"),
+    { icon: Send, block: TG_BLUE, label: t("reagents"), href: "https://t.me/albazakaz", aria: t("reagents"), span: true, track: "Заказ реагентов", type: "telegram" },
   ];
 
   return (
-    <div className="pb-8 pt-[calc(4rem+clamp(10px,2vh,20px))] md:pb-12 md:pt-[calc(5rem+clamp(10px,2vh,20px))] lg:flex lg:pb-[clamp(10px,2vh,20px)] lg:flex-1 lg:flex-col lg:justify-center">
+    <LinksClickTracker className="pb-8 pt-[calc(4rem+clamp(10px,2vh,20px))] md:pb-12 md:pt-[calc(5rem+clamp(10px,2vh,20px))] lg:flex lg:pb-[clamp(10px,2vh,20px)] lg:flex-1 lg:flex-col lg:justify-center">
       <div className="container-x">
         <div className="mx-auto w-full max-w-xl lg:max-w-[760px] min-[1920px]:max-w-[1120px]">
           <h2 className={`${headingClass} mb-[clamp(6px,1.4vh,14px)] lg:mb-3 min-[1920px]:mb-[18px]`}>{t("socialHeading")}</h2>
           <div className={`grid grid-cols-2 lg:grid-cols-3 ${gridGap}`}>
-            <Link href="/" className={tileClass}>
+            <Link href="/" className={tileClass} data-track="Сайт" data-track-type="site">
               <Logo src="/images/social/site.svg" wide />
               <span className={tileLabel}>{t("site")}</span>
             </Link>
             {social.map((s) => (
-              <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className={tileClass}>
+              <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className={tileClass} data-track={s.label} data-track-type="social">
                 <Logo src={s.src} />
                 <span className={tileLabel}>{s.label}</span>
               </a>
@@ -158,6 +165,6 @@ export default function LinksPage() {
           </div>
         </div>
       </div>
-    </div>
+    </LinksClickTracker>
   );
 }
