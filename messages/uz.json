@@ -244,9 +244,15 @@
     }
   },
   "links": {
-    "subtitle": "Barcha aloqa maʼlumotlarimiz va manbalarimiz bir joyda",
+    "socialHeading": "Bizning ijtimoiy tarmoqlarimiz",
     "contactHeading": "Biz bilan bogʻlaning",
-    "socialHeading": "Ijtimoiy tarmoqlarda",
-    "website": "Saytga oʻtish"
+    "servicesHeading": "Bizning xizmatlarimiz",
+    "site": "Sayt",
+    "officeTashkent": "Toshkentdagi ofis",
+    "officeSamarkand": "Samarqanddagi ofis",
+    "officeNamangan": "Namangandagi ofis",
+    "sales": "Uskunalar savdosi boʻlimi",
+    "techService": "Texnik xizmat koʻrsatish",
+    "reagents": "Reagentlar va sarf materiallariga buyurtma"
   }
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Phone, Mail, Send, Instagram, Facebook, Youtube, Linkedin, Globe, type LucideIcon } from "lucide-react";
+import { Phone, Mail, Send, type LucideIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -24,88 +24,128 @@ export async function generateMetadata({
   };
 }
 
-type LinkRow = { icon: LucideIcon; label: string; value: string; href: string };
+const tileClass =
+  "flex flex-col items-center rounded-2xl px-1 py-[clamp(2px,0.6vh,8px)] text-center transition-colors hover:bg-[#EEF3FA] focus-visible:bg-[#EEF3FA]";
+const iconBox = "flex h-[clamp(28px,5.6vh,56px)] items-center justify-center";
+const tileLabel = "mt-1.5 text-[10.5px] font-normal uppercase tracking-wide text-text-muted";
+const headingClass = "font-display text-[13px] font-bold uppercase tracking-wide text-text-primary";
+const headingGap = "mb-[clamp(6px,1.4vh,14px)] mt-[clamp(10px,2.8vh,32px)]";
+const gridGap = "gap-[clamp(6px,1vh,10px)]";
 
-const rowClass =
-  "flex min-h-14 items-center gap-4 rounded-xl border border-bg-border bg-bg-card px-5 py-3 transition-colors hover:border-brand-red";
+function Logo({ src, wide }: { src: string; wide?: boolean }) {
+  return wide ? (
+    <span className={`${iconBox} w-full`}>
+      <Image src={src} alt="" width={1990} height={563} unoptimized className="h-full w-auto max-w-full object-contain" />
+    </span>
+  ) : (
+    <span className={`${iconBox} w-[clamp(28px,5.6vh,56px)]`}>
+      <Image src={src} alt="" width={56} height={56} unoptimized className="h-full w-full object-contain" />
+    </span>
+  );
+}
 
-function Row({ icon: Icon, label, value, href }: LinkRow) {
+const social = [
+  { src: "/images/social/telegram.svg", label: "Telegram", href: "https://t.me/ahc_seminars" },
+  { src: "/images/social/instagram.svg", label: "Instagram", href: "https://www.instagram.com/albatros_healthcareuz/" },
+  { src: "/images/social/facebook.svg", label: "Facebook", href: "https://www.facebook.com/albatros.uz/" },
+  { src: "/images/social/youtube.svg", label: "YouTube", href: "https://www.youtube.com/@albatroshealthcare" },
+  { src: "/images/social/linkedin.svg", label: "LinkedIn", href: "https://www.linkedin.com/company/albatros-health-care/" },
+];
+
+const GREEN = "bg-[#16A34A]";
+const TEAL = "bg-[#4E9E8E]";
+const TG_BLUE = "bg-[#229ED9]";
+
+type Btn = {
+  icon: LucideIcon;
+  block: string;
+  label: string;
+  href: string;
+  aria: string;
+  plainCase?: boolean;
+  span?: boolean;
+};
+
+function Button({ icon: Icon, block, label, href, aria, plainCase, span }: Btn) {
   const external = href.startsWith("https://");
   return (
     <a
       href={href}
+      aria-label={aria}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={rowClass}
+      className={`flex min-h-[clamp(40px,6.4vh,60px)] overflow-hidden rounded-[14px] border border-bg-border bg-bg-card shadow-[0_1px_2px_rgba(16,40,90,0.04)] transition-colors hover:border-brand-red focus-visible:border-brand-red ${
+        span ? "col-span-2 max-[389px]:col-span-1" : ""
+      }`}
     >
-      <Icon className="h-5 w-5 shrink-0 text-brand-red" />
-      <span className="min-w-0">
-        <span className="block text-xs uppercase tracking-wide text-text-muted">{label}</span>
-        <span className="mt-0.5 block break-words text-[15px] leading-snug text-text-primary">{value}</span>
+      <span className={`flex w-11 shrink-0 items-center justify-center ${block}`}>
+        <Icon className="h-5 w-5 text-white" />
+      </span>
+      <span
+        className={`flex flex-1 items-center px-3 py-[clamp(6px,1vh,10px)] text-[10.5px] font-normal leading-snug tracking-wide text-text-muted ${
+          plainCase ? "" : "uppercase"
+        }`}
+      >
+        {label}
       </span>
     </a>
   );
 }
 
-const social: LinkRow[] = [
-  { icon: Instagram, label: "Instagram", value: "@albatros_healthcareuz", href: "https://www.instagram.com/albatros_healthcareuz/" },
-  { icon: Facebook, label: "Facebook", value: "albatros.uz", href: "https://www.facebook.com/albatros.uz/" },
-  { icon: Youtube, label: "YouTube", value: "@albatroshealthcare", href: "https://www.youtube.com/@albatroshealthcare" },
-  { icon: Linkedin, label: "LinkedIn", value: "Albatros Health Care", href: "https://www.linkedin.com/company/albatros-health-care/" },
-];
-
 export default function LinksPage() {
   const t = useTranslations("links");
-  const tc = useTranslations("contact");
 
-  const contacts: LinkRow[] = [
-    { icon: Phone, label: tc("office"), value: "+998 77 756 42 36", href: "tel:+998777564236" },
-    { icon: Phone, label: tc("sales"), value: "+998 99 792 79 00", href: "tel:+998997927900" },
-    { icon: Mail, label: tc("email"), value: "info@albatros.uz", href: "mailto:info@albatros.uz" },
-    { icon: Send, label: tc("telegram"), value: "@ahc_seminars", href: "https://t.me/ahc_seminars" },
+  const phone = (icon: LucideIcon, key: string, tel: string, shown: string, block = GREEN): Btn => ({
+    icon,
+    block,
+    label: t(key),
+    href: `tel:${tel}`,
+    aria: `${t(key)}, ${shown}`,
+  });
+
+  const contacts: Btn[] = [
+    phone(Phone, "officeTashkent", "+998777564236", "+998 77 756 42 36"),
+    { icon: Mail, block: TEAL, label: "info@albatros.uz", href: "mailto:info@albatros.uz", aria: "info@albatros.uz", plainCase: true },
+    phone(Phone, "officeSamarkand", "+998771351115", "+998 77 135 11 15"),
+    phone(Phone, "officeNamangan", "+998959402000", "+998 95 940 20 00"),
+  ];
+
+  const services: Btn[] = [
+    phone(Phone, "sales", "+998997927900", "+998 99 792 79 00"),
+    phone(Phone, "techService", "+998772681122", "+998 77 268 11 22"),
+    { icon: Send, block: TG_BLUE, label: t("reagents"), href: "https://t.me/albazakaz", aria: t("reagents"), span: true },
   ];
 
   return (
-    <div className="pb-12 pt-24 md:pb-16 md:pt-28">
+    <div className="pb-8 pt-[calc(4rem+clamp(10px,2vh,20px))] md:pb-12 md:pt-[calc(5rem+clamp(10px,2vh,20px))]">
       <div className="container-x">
         <div className="mx-auto w-full max-w-xl">
-          <div className="text-center">
-            <Image
-              src="/logo.png"
-              alt="Albatros Health Care"
-              width={1998}
-              height={300}
-              priority
-              className="mx-auto h-9 w-auto object-contain md:h-10"
-            />
-            <h1 className="mt-6 font-display text-3xl font-extrabold text-text-primary md:text-4xl">Albatros Health Care</h1>
-            <p className="mt-3 text-text-secondary">{t("subtitle")}</p>
-          </div>
-
-          <h2 className="mb-3 mt-10 font-display text-sm font-bold uppercase tracking-wide text-text-primary">
-            {t("contactHeading")}
-          </h2>
-          <div className="space-y-3">
-            {contacts.map((c) => (
-              <Row key={c.href} {...c} />
+          <h2 className={`${headingClass} mb-[clamp(6px,1.4vh,14px)]`}>{t("socialHeading")}</h2>
+          <div className="grid grid-cols-2 items-start gap-x-2 gap-y-[clamp(4px,1vh,18px)] [@media(max-height:700px)]:grid-cols-3">
+            <Link href="/" className={tileClass}>
+              <Logo src="/images/social/site.svg" wide />
+              <span className={tileLabel}>{t("site")}</span>
+            </Link>
+            {social.map((s) => (
+              <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className={tileClass}>
+                <Logo src={s.src} />
+                <span className={tileLabel}>{s.label}</span>
+              </a>
             ))}
           </div>
 
-          <h2 className="mb-3 mt-10 font-display text-sm font-bold uppercase tracking-wide text-text-primary">
-            {t("socialHeading")}
-          </h2>
-          <div className="space-y-3">
-            {social.map((c) => (
-              <Row key={c.href} {...c} />
+          <h2 className={`${headingClass} ${headingGap}`}>{t("contactHeading")}</h2>
+          <div className={`grid grid-cols-2 ${gridGap}`}>
+            {contacts.map((b) => (
+              <Button key={b.href} {...b} />
             ))}
           </div>
 
-          <Link
-            href="/"
-            className="mt-10 flex min-h-14 items-center justify-center gap-2 rounded-xl bg-brand-red px-5 py-3 font-semibold text-white transition-opacity hover:opacity-90"
-          >
-            <Globe className="h-5 w-5" />
-            {t("website")}
-          </Link>
+          <h2 className={`${headingClass} ${headingGap}`}>{t("servicesHeading")}</h2>
+          <div className={`grid grid-cols-2 max-[389px]:grid-cols-1 ${gridGap}`}>
+            {services.map((b) => (
+              <Button key={b.href} {...b} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

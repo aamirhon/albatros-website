@@ -246,9 +246,15 @@
     }
   },
   "links": {
-    "subtitle": "All our contacts and resources in one place",
+    "socialHeading": "Our social media",
     "contactHeading": "Get in touch",
-    "socialHeading": "Follow us",
-    "website": "Visit our website"
+    "servicesHeading": "Our services",
+    "site": "Website",
+    "officeTashkent": "Tashkent office",
+    "officeSamarkand": "Samarkand office",
+    "officeNamangan": "Namangan office",
+    "sales": "Equipment sales",
+    "techService": "Technical service",
+    "reagents": "Reagents and consumables orders"
   }
 }
